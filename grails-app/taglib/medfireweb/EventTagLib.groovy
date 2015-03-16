@@ -13,6 +13,7 @@ class EventTagLib {
 				out << "<li style='display:inline'>"+EstadoEvent.EVENT_AUSENTE.name+": <div style='width:50px;height:15px;background:${grailsApplication.config.event.COLOR_AUSENTE};'></div></li>"
 				out << "<li style='display:inline'>"+EstadoEvent.EVENT_ANULADO.name+": <div style='width:50px;height:15px;background:${grailsApplication.config.event.COLOR_ANULADO};'></div></li>"
 				out << "<li style='display:inline'>"+EstadoEvent.EVENT_PENDIENTE.name+": <div style='width:50px;height:15px;background:${grailsApplication.config.event.COLOR_PENDIENTE};'></div></li>"
+                out << "<li style='display:inline'>"+EstadoEvent.EVENT_ENSALA.name+": <div style='width:50px;height:15px;background:${grailsApplication.config.event.COLOR_ENSALA};'></div></li>"
 				out << "</ul>"
 			}
 		}

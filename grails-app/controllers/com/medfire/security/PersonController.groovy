@@ -11,6 +11,7 @@ class PersonController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+        log.info "Index method"
         params.max = Math.min(max ?: 10, 100)
         respond Person.list(params), model:[personInstanceCount: Person.count()]
     }
