@@ -71,6 +71,7 @@ grails.project.dependency.resolution = {
         compile ":audit-logging:1.0.3"
         compile ":jasper:1.11.0"
         compile ':spring-security-core:2.0-RC4'
+        compile ":spring-security-ui:1.0-RC2"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
