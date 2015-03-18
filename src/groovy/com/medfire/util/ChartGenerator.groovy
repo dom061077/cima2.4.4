@@ -1,9 +1,8 @@
 package com.medfire.util
 
-
+import com.medfire.chart.CustomLabelGenerator
 import java.awt.Color
 import java.awt.Font
-
 import org.jfree.chart.ChartRenderingInfo
 import org.jfree.chart.ChartUtilities
 import org.jfree.chart.JFreeChart
@@ -12,8 +11,6 @@ import org.jfree.chart.plot.PiePlot3D
 import org.jfree.data.general.DefaultPieDataset
 import org.jfree.ui.RectangleEdge
 import org.jfree.util.Rotation
-
-import com.medfire.chart.CustomLabelGenerator
 
 class ChartGenerator {
 	void drawPieChart(List keys, List values, Integer width, Integer height,String file) {

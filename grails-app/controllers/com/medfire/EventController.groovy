@@ -17,13 +17,10 @@ BEGIN
 DELIMITER ;
 * */
 
-import com.medfire.enums.EstadoEvent;
-import com.medfire.util.FilterUtils
-import java.util.Calendar;
-import java.util.Date
-import java.util.GregorianCalendar
-import grails.converters.JSON
+import com.medfire.enums.EstadoEvent
 import com.medfire.security.Person
+import com.medfire.util.FilterUtils
+import grails.converters.JSON
 
 class EventController {
 	def springSecurityService

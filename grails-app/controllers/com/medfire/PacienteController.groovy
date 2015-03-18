@@ -1,15 +1,10 @@
 package com.medfire
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.Calendar;
-import com.medfire.util.GUtilDomainClass
-import grails.converters.JSON
 import org.springframework.transaction.TransactionStatus
 //import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
 import grails.plugin.springsecurity.SpringSecurityUtils
+import com.medfire.util.GUtilDomainClass
+import grails.converters.JSON
 
 class PacienteController {
 	def grailsApplication

@@ -1,7 +1,7 @@
 package com.medfire.security
 
-import com.medfire.Profesional
 import com.medfire.Institucion
+import com.medfire.Profesional
 
 class Person {
 

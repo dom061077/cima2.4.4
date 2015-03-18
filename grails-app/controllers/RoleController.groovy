@@ -1,5 +1,4 @@
 import com.medfire.Role
-import com.medfire.Requestmap
 
 /**
  * Authority Controller.

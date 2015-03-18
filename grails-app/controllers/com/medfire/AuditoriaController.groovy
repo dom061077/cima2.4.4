@@ -1,12 +1,9 @@
 package com.medfire
 
-import groovy.sql.Sql
-//import org.codehaus.groovy.grails.commons.ConfigurationHolder
-import java.text.SimpleDateFormat
-import java.text.ParseException
-import java.text.ParsePosition;
-import com.medfire.enums.TipoTransaccionEnum
 
+import com.medfire.enums.TipoTransaccionEnum
+import java.text.ParsePosition
+import java.text.SimpleDateFormat
 
 class AuditoriaController {
 	def dataSource

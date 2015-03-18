@@ -1,7 +1,5 @@
 package com.medfire
 
-import com.medfire.User
-
 /**
  * Authority domain class.
  */

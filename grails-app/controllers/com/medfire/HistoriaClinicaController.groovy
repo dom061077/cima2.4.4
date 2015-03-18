@@ -1,17 +1,16 @@
 package com.medfire
 
-import java.text.DateFormat
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.ArrayList
-
-import com.medfire.enums.EstadoConsultaEnum
-import com.medfire.enums.ImpresionVademecumEnum
-import com.medfire.util.GUtilDomainClass
 import pl.burningice.plugins.image.container.ContainerUtils
 //import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
 import grails.plugin.springsecurity.SpringSecurityUtils
+
+import com.medfire.enums.EstadoConsultaEnum
+import com.medfire.enums.ImpresionVademecumEnum
 import com.medfire.security.Person
+import com.medfire.util.GUtilDomainClass
+import java.text.DateFormat
+import java.text.ParseException
+import java.text.SimpleDateFormat
 
 class HistoriaClinicaController {
 

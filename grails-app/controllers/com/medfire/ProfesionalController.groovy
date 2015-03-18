@@ -1,10 +1,8 @@
 package com.medfire
 
-import com.medfire.util.GUtilDomainClass
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
-import java.text.ParseException;
 import org.springframework.web.multipart.commons .CommonsMultipartFile
+import com.medfire.util.GUtilDomainClass
+
 //import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
 
 class ProfesionalController {

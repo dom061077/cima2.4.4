@@ -1,7 +1,5 @@
 package com.medfire
 
-import com.medfire.Role
-
 /**
  * User domain class.
  */

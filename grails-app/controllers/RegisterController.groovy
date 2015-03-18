@@ -1,5 +1,5 @@
-import com.medfire.User
 import com.medfire.Role
+import com.medfire.User
 
 //import org.springframework.security.providers.UsernamePasswordAuthenticationToken as AuthToken
 //import org.springframework.security.context.SecurityContextHolder as SCH

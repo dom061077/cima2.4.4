@@ -1,10 +1,10 @@
 package com.medfire
 
+import pl.burningice.plugins.image.ast.FileImageContainer
 import com.medfire.enums.IvaEnum
-import com.medfire.enums.TipoMatriculaEnum
 import com.medfire.enums.SexoEnum
 import com.medfire.enums.TipoDocumentoEnum
-import pl.burningice.plugins.image.ast.FileImageContainer
+import com.medfire.enums.TipoMatriculaEnum
 
 @FileImageContainer(field = 'photo')
 class Profesional {

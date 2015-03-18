@@ -1,10 +1,8 @@
 	package com.medfire
-    
-import java.util.Map; 
 
-import com.medfire.util.GUtilDomainClass
+    import com.medfire.util.GUtilDomainClass
 
-class UserController {  
+    class UserController {
 	def authenticateService
 	def emailerService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

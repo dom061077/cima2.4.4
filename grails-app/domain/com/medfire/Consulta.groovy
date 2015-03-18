@@ -1,7 +1,7 @@
 package com.medfire
 
-import java.sql.Date
 import com.medfire.enums.EstadoConsultaEnum
+import java.sql.Date
 
 class Consulta {
 	static auditable = true

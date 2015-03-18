@@ -1,8 +1,6 @@
 package com.medfire.util
 
-import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import org.apache.log4j.Logger
-
 
 class FilterUtils {
 	private static Logger log = Logger.getLogger(FilterUtils.class)

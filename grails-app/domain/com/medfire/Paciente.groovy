@@ -1,6 +1,8 @@
 package com.medfire
 
-import com.medfire.enums.*
+import com.medfire.enums.EstadoCivilEnum
+import com.medfire.enums.IvaEnum
+import com.medfire.enums.TipoDocumentoEnum
 
 class Paciente {
 	static auditable = true

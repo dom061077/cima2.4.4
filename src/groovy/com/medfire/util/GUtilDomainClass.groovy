@@ -1,11 +1,10 @@
 package com.medfire.util
 
-import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass;
-import java.util.StringTokenizer;
-import com.medfire.*
 import org.apache.log4j.Logger;
-import grails.converters.JSON
 
+
+import grails.converters.JSON
+import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 
 class GUtilDomainClass{
 	private static Logger log = Logger.getLogger(GUtilDomainClass.class)

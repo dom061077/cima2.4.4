@@ -1,10 +1,7 @@
 package com.medfire
 
-import com.medfire.enums.ImpresionVademecumEnum
 import com.medfire.enums.EstadoEvent
-
-
-
+import com.medfire.enums.ImpresionVademecumEnum
 
 class HistoriaClinicaService {
 	def imageUploadService

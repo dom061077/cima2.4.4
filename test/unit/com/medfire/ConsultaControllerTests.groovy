@@ -1,6 +1,6 @@
 package com.medfire
 
-import grails.test.*
+import grails.test.ControllerUnitTestCase
 
 class ConsultaControllerTests extends ControllerUnitTestCase {
     protected void setUp() {

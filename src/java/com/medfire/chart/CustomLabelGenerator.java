@@ -1,9 +1,9 @@
 package com.medfire.chart;
 
-import java.text.AttributedString;
-
-import org.jfree.data.general.PieDataset;
 import org.jfree.chart.labels.PieSectionLabelGenerator;
+import org.jfree.data.general.PieDataset;
+
+import java.text.AttributedString;
 
 class CustomLabelGenerator implements PieSectionLabelGenerator {
 	

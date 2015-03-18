@@ -1,7 +1,6 @@
 package medfireweb
 
-import com.medfire.Event
-import com.medfire.enums.EstadoEvent;
+import com.medfire.enums.EstadoEvent
 
 class EventTagLib {
 		def colorsList = {attrs->

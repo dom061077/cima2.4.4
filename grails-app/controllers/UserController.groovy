@@ -1,5 +1,5 @@
-import com.medfire.User
 import com.medfire.Role
+import com.medfire.User
 
 /**
  * User controller.

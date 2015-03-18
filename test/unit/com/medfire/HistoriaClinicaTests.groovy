@@ -1,6 +1,6 @@
 package com.medfire
 
-import grails.test.*
+import grails.test.GrailsUnitTestCase
 
 class HistoriaClinicaTests extends GrailsUnitTestCase {
     protected void setUp() {

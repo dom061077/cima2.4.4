@@ -1,11 +1,6 @@
 package com.medfire
 //http://fokot.blogspot.com/2011/06/having-clause-in-hibernate-criteria-no.html
-import java.text.DateFormat
 
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat
-import java.text.ParseException
-import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Criterion;
@@ -13,13 +8,16 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections
 import org.hibernate.criterion.Subqueries
 
-import com.medfire.util.GUtilDomainClass
-import grails.converters.JSON
-import com.medfire.util.ChartGenerator
 import pl.burningice.plugins.image.container.ContainerUtils
 //import org.codehaus.groovy.grails.commons.ApplicationHolder as AH
 import org.hibernate.SessionFactory
 import org.hibernate.Session
+import com.medfire.util.ChartGenerator
+import com.medfire.util.GUtilDomainClass
+import java.text.DateFormat
+import java.text.ParseException
+import java.text.ParsePosition
+import java.text.SimpleDateFormat
 
 class ConsultaController {
 	def authenticateService

@@ -1,8 +1,7 @@
 package com.medfire
-import java.util.Date
 
 import com.medfire.enums.EstadoEvent
-import com.medfire.security.Person;
+import com.medfire.security.Person
 
 class Event {
 	static auditable = true

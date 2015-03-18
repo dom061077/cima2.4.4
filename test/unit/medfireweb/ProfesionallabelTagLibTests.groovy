@@ -1,6 +1,6 @@
 package medfireweb
 
-import grails.test.*
+import grails.test.TagLibUnitTestCase
 
 class ProfesionallabelTagLibTests extends TagLibUnitTestCase {
     protected void setUp() {

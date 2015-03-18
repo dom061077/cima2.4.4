@@ -1,22 +1,10 @@
-import com.medfire.User
-import com.medfire.Role
-import com.medfire.Requestmap
-import com.medfire.ObraSocial
-import com.medfire.Iva
-import com.medfire.EstadoCivil
-import com.medfire.TipoDocumento
-import com.medfire.Provincia
-import com.medfire.Localidad
-import com.medfire.Paciente
-import com.medfire.Profesional
-import com.medfire.AntecedenteLabel
-import com.medfire.Institucion
 //import org.apache.commons.io.FileUtils;
 //import groovy.sql.Sql;
 //import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
-import com.medfire.util.DataSourceUtils
-import com.medfire.security.Person
+
+
 import com.medfire.security.Authority
+import com.medfire.security.Person
 import com.medfire.security.PersonAuthority
 
 //http://grails.1312388.n4.nabble.com/MySQL-errors-after-standing-idle-for-a-period-td3328284.html

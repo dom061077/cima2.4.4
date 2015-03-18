@@ -1,6 +1,6 @@
 package medfireweb
 
-import grails.test.*
+import grails.test.TagLibUnitTestCase
 
 class BurningImageExtensionTagLibTests extends TagLibUnitTestCase {
     protected void setUp() {
