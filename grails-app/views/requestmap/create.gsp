@@ -1,53 +1,56 @@
+<html>
+
 <head>
-	<meta name="layout" content="main" />
-	<title>Create Requestmap</title>
+	<meta name='layout' content='springSecurityUI'/>
+	<g:set var="entityName" value="${message(code: 'requestmap.label', default: 'Requestmap')}"/>
+	<title><g:message code="default.create.label" args="[entityName]"/></title>
 </head>
 
 <body>
 
-	<div class="nav">
-		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-		<span class="menuButton"><g:link class="list" action="list">Requestmap List</g:link></span>
-	</div>
+<div class="body">
 
-	<div class="body">
-		<h1>Create Requestmap</h1>
-		<g:if test="${flash.message}">
-		<div class="message">${flash.message}</div>
-		</g:if>
-		<g:hasErrors bean="${requestmap}">
-		<div class="errors">
-			<g:renderErrors bean="${requestmap}" as="list" />
-		</div>
-		</g:hasErrors>
-		<g:form action="save">
-			<div class="dialog">
-				<table>
+	<s2ui:form width='100%' height='225' elementId='formContainer'
+	           titleCode='default.create.label' titleCodeArgs='[entityName]'>
+
+	<g:form action="save" name='requestmapCreateForm'>
+		<div class="dialog">
+
+			<br/>
+
+			<table>
 				<tbody>
 
-					<tr class="prop">
-						<td valign="top" class="name"><label for="url">URL Pattern:</label></td>
-						<td valign="top" class="value ${hasErrors(bean:requestmap,field:'url','errors')}">
-							<input type="text" id="url" name="url" value="${requestmap.url?.encodeAsHTML()}"/>
-						</td>
-					</tr>
+					<s2ui:textFieldRow name='url' labelCode='requestmap.url.label' bean="${requestmap}"
+					                   size='50' labelCodeDefault='URL' value="${requestmap?.url}"/>
+
+					<s2ui:textFieldRow name='configAttribute' labelCode='requestmap.configAttribute.label'
+					                   size='50' bean="${requestmap}" labelCodeDefault='Config Attribute'
+					                   value="${requestmap?.configAttribute}"/>
+
+					<tr><td>&nbsp;</td></tr>
 
 					<tr class="prop">
-						<td valign="top" class="name"><label for="configAttribute">Role (comma-delimited):</label></td>
-						<td valign="top" class="value ${hasErrors(bean:requestmap,field:'configAttribute','errors')}">
-							<input type="text" id="configAttribute" name="configAttribute" value="${requestmap.configAttribute?.encodeAsHTML()}"/>
+						<td valign="top">
+							<s2ui:submitButton elementId='create' form='requestmapCreateForm' messageCode='default.button.create.label'/>
 						</td>
 					</tr>
 
 				</tbody>
-				</table>
-			</div>
+			</table>
+		</div>
 
-			<div class="buttons">
-				<span class="button"><input class="save" type="submit" value="Create" /></span>
-			</div>
+	</g:form>
 
-		</g:form>
+	</s2ui:form>
 
-	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	$('#url').focus();
+});
+</script>
+
 </body>
+</html>

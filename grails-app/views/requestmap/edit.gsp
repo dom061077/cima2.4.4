@@ -1,63 +1,57 @@
+<html>
+
 <head>
-	<meta name="layout" content="main" />
-	<title>Edit Requestmap</title>
+	<meta name='layout' content='springSecurityUI'/>
+	<g:set var="entityName" value="${message(code: 'requestmap.label', default: 'Requestmap')}"/>
+	<title><g:message code="default.edit.label" args="[entityName]"/></title>
 </head>
 
 <body>
 
-	<div class="nav">
-		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-		<span class="menuButton"><g:link class="list" action="list">Requestmap List</g:link></span>
-		<span class="menuButton"><g:link class="create" action="create">New Requestmap</g:link></span>
-	</div>
+<div class="body">
 
-	<div class="body">
-		<h1>Edit Requestmap</h1>
-		<g:if test="${flash.message}">
-		<div class="message">${flash.message}</div>
-		</g:if>
-		<g:hasErrors bean="${requestmap}">
-		<div class="errors">
-		<g:renderErrors bean="${requestmap}" as="list" />
-		</div>
-		</g:hasErrors>
+	<s2ui:form width='100%' height='225' elementId='formContainer'
+	           titleCode='default.edit.label' titleCodeArgs='[entityName]'>
 
-		<div class="prop">
-			<span class="name">ID:</span>
-			<span class="value">${requestmap.id}</span>
-		</div>
+	<g:form action='update' name='requestmapEditForm'>
+		<g:hiddenField name="id" value="${requestmap?.id}"/>
+		<g:hiddenField name="version" value="${requestmap?.version}"/>
+		<div class="dialog">
 
-		<g:form>
-			<input type="hidden" name="id" value="${requestmap.id}" />
-			<input type="hidden" name="version" value="${requestmap.version}" />
-			<div class="dialog">
-				<table>
+			<br/>
+
+			<table>
 				<tbody>
 
-					<tr class="prop">
-						<td valign="top" class="name"><label for="url">URL Pattern:</label></td>
-						<td valign="top" class="value ${hasErrors(bean:requestmap,field:'url','errors')}">
-							<input type="text" id="url" name="url" value="${requestmap.url?.encodeAsHTML()}"/>
-						</td>
-					</tr>
+					<s2ui:textFieldRow name='url' size='50' labelCode='requestmap.url.label' bean="${requestmap}"
+					                   labelCodeDefault='URL' value="${requestmap?.url}"/>
 
-					<tr class="prop">
-						<td valign="top" class="name"><label for="configAttribute">Roles (comma-delimited):</label></td>
-						<td valign="top" class="value ${hasErrors(bean:requestmap,field:'configAttribute','errors')}">
-							<input type="text" name='configAttribute'  value="${requestmap.configAttribute}"/>
-						</td>
-					</tr>
+					<s2ui:textFieldRow name='configAttribute' size='50' labelCode='requestmap.configAttribute.label'
+					                   bean="${requestmap}" labelCodeDefault='Config Attribute'
+					                   value="${requestmap?.configAttribute}"/>
 
 				</tbody>
-				</table>
-			</div>
+			</table>
+		</div>
 
-			<div class="buttons">
-				<span class="button"><g:actionSubmit class="save" value="Update" /></span>
-				<span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
-			</div>
+		<div style='float:left; margin-top: 10px;'>
+		<s2ui:submitButton elementId='update' form='requestmapEditForm' messageCode='default.button.update.label'/>
 
-		</g:form>
+		<g:if test='${requestmap}'>
+		<s2ui:deleteButton />
+		</g:if>
 
-	</div>
+		</div>
+
+	</g:form>
+
+	</s2ui:form>
+
+	<g:if test='${requestmap}'>
+	<s2ui:deleteButtonForm instanceId='${requestmap.id}'/>
+	</g:if>
+
+</div>
+
 </body>
+</html>

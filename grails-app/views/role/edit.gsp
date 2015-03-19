@@ -1,69 +1,61 @@
+<html>
+
 <head>
-	<meta name="layout" content="main" />
-	<title>Edit Role</title>
+	<meta name='layout' content='springSecurityUI'/>
+	<g:set var="entityName" value="${message(code: 'role.label', default: 'Role')}"/>
+	<title><g:message code="default.edit.label" args="[entityName]"/></title>
 </head>
 
 <body>
 
-	<div class="nav">
-		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-		<span class="menuButton"><g:link class="list" action="list">Role List</g:link></span>
-		<span class="menuButton"><g:link class="create" action="create">New Role</g:link></span>
-	</div>
+<h3><g:message code="default.edit.label" args="[entityName]"/></h3>
 
-	<div class="body">
-		<h1>Edit Role</h1>
-		<g:if test="${flash.message}">
-		<div class="message">${flash.message}</div>
+<g:form action="update" name='roleEditForm'>
+<g:hiddenField name="id" value="${role?.id}"/>
+<g:hiddenField name="version" value="${role?.version}"/>
+
+<%
+def tabData = []
+tabData << [name: 'roleinfo', icon: 'icon_role',  messageCode: 'spring.security.ui.role.info']
+tabData << [name: 'users',    icon: 'icon_users', messageCode: 'spring.security.ui.role.users']
+%>
+
+<s2ui:tabs elementId='tabs' height='150' data="${tabData}">
+
+	<s2ui:tab name='roleinfo' height='150'>
+		<table>
+		<tbody>
+			<s2ui:textFieldRow name='authority' labelCode='role.authority.label' bean="${role}"
+                            labelCodeDefault='Authority' value="${role?.authority}"/>
+		</tbody>
+		</table>
+	</s2ui:tab>
+
+	<s2ui:tab name='users' height='150'>
+		<g:if test='${users.empty}'>
+		<g:message code="spring.security.ui.role_no_users"/>
 		</g:if>
-		<g:hasErrors bean="${authority}">
-		<div class="errors">
-			<g:renderErrors bean="${authority}" as="list" />
-		</div>
-		</g:hasErrors>
-		<div class="prop">
-			<span class="name">ID:</span>
-			<span class="value">${authority.id}</span>
-		</div>
-		<g:form>
-			<input type="hidden" name="id" value="${authority.id}" />
-			<input type="hidden" name="version" value="${authority.version}" />
-			<div class="dialog">
-			<table>
-			<tbody>
-				<tr class="prop">
-					<td valign="top" class="name"><label for="authority">Role Name:</label></td>
-					<td valign="top" class="value ${hasErrors(bean:authority,field:'authority','errors')}">
-						<input type="text" id="authority" name="authority" value="${authority.authority?.encodeAsHTML()}"/>
-					</td>
-				</tr>
+		<g:each var="u" in="${users}">
+			<g:link controller='user' action='edit' id='${u.id}'>${u.username.encodeAsHTML()}</g:link><br/>
+		</g:each>
+	</s2ui:tab>
 
-				<tr class="prop">
-					<td valign="top" class="name"><label for="description">Description:</label></td>
-					<td valign="top" class="value ${hasErrors(bean:authority,field:'description','errors')}">
-						<input type="text" id="description" name="description" value="${authority.description?.encodeAsHTML()}"/>
-					</td>
-				</tr>
+</s2ui:tabs>
 
-				<tr class="prop">
-					<td valign="top" class="name"><label for="people">People:</label></td>
-					<td valign="top" class="value ${hasErrors(bean:authority,field:'people','errors')}">
-						<ul>
-						<g:each var="p" in="${authority.people?}">
-							<li>${p}</li>
-						</g:each>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-			</table>
-			</div>
+<div style='float:left; margin-top: 10px;'>
+<s2ui:submitButton elementId='update' form='roleEditForm' messageCode='default.button.update.label'/>
 
-			<div class="buttons">
-				<span class="button"><g:actionSubmit class="save" value="Update" /></span>
-				<span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
-			</div>
+<g:if test='${role}'>
+<s2ui:deleteButton />
+</g:if>
 
-		</g:form>
-	</div>
+</div>
+
+</g:form>
+
+<g:if test='${role}'>
+<s2ui:deleteButtonForm instanceId='${role.id}'/>
+</g:if>
+
 </body>
+</html>
