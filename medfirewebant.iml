@@ -34,7 +34,9 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="Gorm" />
+        </datasource-map>
       </configuration>
     </facet>
   </component>
@@ -57,8 +59,6 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" name="com.springsource.sts.grails.core.CLASSPATH_CONTAINER" level="application" />
-    <orderEntry type="library" name="grails-aether-2.4.2" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (medfirewebant)">
         <CLASSES>
@@ -69,6 +69,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="grails-aether-2.4.4" level="application" />
   </component>
 </module>
 
