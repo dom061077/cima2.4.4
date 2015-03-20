@@ -7,7 +7,7 @@ import com.medfire.util.GUtilDomainClass
 
 class ProfesionalController {
 	def imageUploadService
-	def authenticateService
+	def springSecurityService
 	
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -75,7 +75,7 @@ class ProfesionalController {
         def profesionalInstance = new Profesional(params)
 		//profesionalInstance.antecedenteLabel= new AntecedenteLabel()
 		
-		profesionalInstance.institucion = authenticateService.userDomain().institucion
+		profesionalInstance.institucion = springSecurityService.getCurrentUser().institucion
 		
 		if(fechaIngresoError){
 			profesionalInstance.validate()
@@ -254,7 +254,7 @@ class ProfesionalController {
 	def listjson = {
 		log.info "INGRESANDO AL CLOSURE listjson DEL CONTROLLER ProfesionalController"
 		log.info "PARAMETROS: ${params}"
-		def institucionInstance = authenticateService.userDomain().institucion
+		def institucionInstance = springSecurityService.getCurrentUser().institucion
 		if (AuthorizeTools.ifAnyGranted("ROLE_USER,ROLE_PROFESIONAL")){
 			params.altfilters = """{'groupOp':'AND','rules':[{'field':'institucion_id','op':'eq','data':'${institucionInstance.id}'}]}"""
 			params._search = "true"
@@ -312,7 +312,7 @@ class ProfesionalController {
 				like('nombre','%'+params.term+'%')
 				if (AuthorizeTools.ifAnyGranted("ROLE_USER,ROLE_PROFESIONAL")){
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 				}
 			}
@@ -339,7 +339,7 @@ class ProfesionalController {
 	def listsearchjson = {
 		log.info "INGRESANDO AL METODO listsearchjson"
 		log.info "PARAMETROS: ${params}"
-		def institucionInstance = authenticateService.userDomain().institucion
+		def institucionInstance = springSecurityService.getCurrentUser().institucion
 		params.altfilters = """{'groupOp':'AND','rules':[{'field':'institucion_id','op':'eq','data':'${institucionInstance.id}'}]}"""
 		params._search = "true"
 

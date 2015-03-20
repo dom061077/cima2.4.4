@@ -30,8 +30,8 @@ class BurningImageExtensionTagLib {
 	
 	def institucioninfo = { attrs ->
 		out << "<CENTER>"
-		out << "<p>"+springSecurityService.userDomain().institucion.nombre+"</p>"+"<p>"+(springSecurityService.userDomain().institucion.direccion?springSecurityService.userDomain().institucion.direccion:"")+"</p>"
-		out << "<p><a href='${(springSecurityService.userDomain().institucion.web?springSecurityService.userDomain().institucion.web:"")}'>"+(springSecurityService.userDomain().institucion.web?springSecurityService.userDomain().institucion.web:"")+"</a>"
+		out << "<p>"+springSecurityService.getCurrentUser().institucion.nombre+"</p>"+"<p>"+(springSecurityService.getCurrentUser().institucion.direccion?springSecurityService.getCurrentUser().institucion.direccion:"")+"</p>"
+		out << "<p><a href='${(springSecurityService.getCurrentUser().institucion.web?springSecurityService.getCurrentUser().institucion.web:"")}'>"+(springSecurityService.getCurrentUser().institucion.web?springSecurityService.getCurrentUser().institucion.web:"")+"</a>"
 		out << "</CENTER>"
 	}
 

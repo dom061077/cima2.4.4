@@ -88,8 +88,8 @@ the explicit tags above and edit those, not the taglib code.
 				<g:if test='${SpringSecurityUtils.securityConfig.securityConfigType?.toString() == 'Requestmap'}'>
 				<li><a class="accessible"><g:message code="spring.security.ui.menu.requestmaps"/></a>
 					<ul>
-						<li><g:link controller="requestmap" action='search'><g:message code="spring.security.ui.search"/></g:link></li>
-						<li><g:link controller="requestmap" action='create'><g:message code="spring.security.ui.create"/></g:link></li>
+						<li><g:link controller="requestmapa" action='search'><g:message code="spring.security.ui.search"/></g:link></li>
+						<li><g:link controller="requestmapa" action='create'><g:message code="spring.security.ui.create"/></g:link></li>
 					</ul>
 				</li>
 				</g:if>

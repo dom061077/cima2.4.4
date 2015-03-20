@@ -56,6 +56,9 @@ if (isOpenId) {
 
 			<s2ui:checkboxRow name='passwordExpired' labelCode='user.passwordExpired.label' bean="${user}"
                            labelCodeDefault='Password Expired' value="${user?.passwordExpired}"/>
+            <s2ui:checkboxRow name='esProfesional' labelCode='user.esProfesional.label' bean="${user}"
+                              labelCodeDefault='Es Profesional' value="${user?.esProfesional}"/>
+
 		</tbody>
 		</table>
 	</s2ui:tab>

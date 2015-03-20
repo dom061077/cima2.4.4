@@ -13,7 +13,7 @@ import com.medfire.security.PersonAuthority
 class BootStrap {
 	def authenticateService
     def init = { servletContext ->
-		createAdminIfRequired()
+		//createAdminIfRequired()
 		//DataSourceUtils.tune(servletContext)
     }
     def destroy = {

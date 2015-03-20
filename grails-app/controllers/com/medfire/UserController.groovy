@@ -6,7 +6,7 @@
 	def authenticateService
 	def emailerService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+         /*
     def index = {  
         redirect(action: "list", params: params)
     } 
@@ -326,7 +326,7 @@
 		}
 	}
 
-	def changepassword = {/*UserPasswordCommand usrc ->*/
+	def changepassword = {
 		log.info "INGRESNDO AL CLOSURE changepassword"
 		log.info "PARAMETROS: $params"
 		def userCommand = new UserPasswordCommand()
@@ -392,5 +392,5 @@ class UserPasswordCommand {
 				if(!current.equals(cmd.newPassword))
 					return "notequals"
 		})
-	} 	
+	}*/
 }

@@ -20,7 +20,7 @@ import java.text.ParsePosition
 import java.text.SimpleDateFormat
 
 class ConsultaController {
-	def authenticateService
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -159,7 +159,7 @@ class ConsultaController {
 		def totalregistros
 		def totalpaginas
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
-		def usuario = authenticateService.userDomain()
+		def usuario = springSecurityService.getCurrentUser()
 		def list=Consulta.createCriteria().list(){
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -179,7 +179,7 @@ class ConsultaController {
 				eq("id",usuario.profesionalAsignado?.id)
 			}
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			firstResult((params.page.toInteger()-1)*params.rows.toInteger())
 			maxResults(params.rows.toInteger())
@@ -202,7 +202,7 @@ class ConsultaController {
 			}
 			
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			projections{
 				rowCount()
@@ -296,7 +296,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		list = Consulta.createCriteria().list(){
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			createAlias("paciente","p")
 			if(params.fechaDesde){
@@ -357,7 +357,7 @@ class ConsultaController {
 			createAlias("paciente","p")
 			
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -419,7 +419,7 @@ class ConsultaController {
 			createAlias("paciente","p")
 			
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -531,7 +531,7 @@ class ConsultaController {
 					}
 				}
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				firstResult((params.page.toInteger()-1)*params.rows.toInteger())
 				maxResults(params.rows.toInteger())
@@ -566,7 +566,7 @@ class ConsultaController {
 				}
 
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				projections{
 					rowCount()
@@ -637,7 +637,7 @@ class ConsultaController {
 					}
 		
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 					if(params.cie10Id){
 						cie10{
@@ -688,7 +688,7 @@ class ConsultaController {
 		if(cmd.validate()){
 				list = Consulta.createCriteria().list(){
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 					if(params.fechaDesde){
 						java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -755,7 +755,7 @@ class ConsultaController {
 		log.info "PARAMETROS: $params"
 		//bi.resource(size:'large',bean:it)
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion  //list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion  //list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -784,7 +784,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		def listPacientes=Consulta.createCriteria().list(){
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde){
 					java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -824,7 +824,7 @@ class ConsultaController {
 		log.info "PARAMETROS: $params"
 		
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion //list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion //list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -853,7 +853,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		def listporprof = Consulta.createCriteria().list(){
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -896,7 +896,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reportepordiag"
 		log.info "PARAMETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -925,7 +925,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		def listdiagnostico = Consulta.createCriteria().list(){
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -968,7 +968,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reportepordiag"
 		log.info "PARAMETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -997,7 +997,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		def listdiagnostico = Consulta.createCriteria().list(){
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -1063,7 +1063,7 @@ class ConsultaController {
 		if(cmd.validate()){
 			list=Consulta.createCriteria().list(){
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				
 				if(params.fechaDesde){
@@ -1085,7 +1085,7 @@ class ConsultaController {
 					order("apellido","desc")
 				}
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 
 				firstResult((params.page.toInteger()-1)*params.rows.toInteger())
@@ -1095,7 +1095,7 @@ class ConsultaController {
 			}
 			totalregistros=Consulta.createCriteria().get(){
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde){
 					java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -1113,7 +1113,7 @@ class ConsultaController {
 					}
 				}
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				projections{
 					rowCount()
@@ -1217,7 +1217,7 @@ class ConsultaController {
 			list = Consulta.createCriteria().list(){
 				and{
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 					if(params.fechaDesde)
 						ge("fechaConsulta",fechaDesde)
@@ -1248,7 +1248,7 @@ class ConsultaController {
 			totalregistros=Consulta.createCriteria().get(){
 				createAlias("paciente","p")
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde){
 					ge("fechaConsulta",new java.sql.Date(fechaDesde.getTime()))
@@ -1341,7 +1341,7 @@ class ConsultaController {
 			list = Consulta.createCriteria().list(){
 				and{
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 					if(params.fechaDesde)
 						ge("fechaConsulta",fechaDesde)
@@ -1372,7 +1372,7 @@ class ConsultaController {
 			totalregistros=Consulta.createCriteria().get(){
 				createAlias("paciente","p")
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde){
 					ge("fechaConsulta",new java.sql.Date(fechaDesde.getTime()))
@@ -1471,7 +1471,7 @@ class ConsultaController {
 			list = Consulta.createCriteria().list(){
 				and{
 					institucion{
-						eq("id",authenticateService.userDomain().institucion.id)
+						eq("id",springSecurityService.getCurrentUser().institucion.id)
 					}
 					if(params.fechaDesde)
 						ge("fechaConsulta",fechaDesde)
@@ -1492,7 +1492,7 @@ class ConsultaController {
 			totalregistros=Consulta.createCriteria().get(){
 				createAlias("paciente","p")
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde){
 					ge("fechaConsulta",new java.sql.Date(fechaDesde.getTime()))
@@ -1543,7 +1543,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reporteporos"
 		log.info "PARAMETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -1572,7 +1572,7 @@ class ConsultaController {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 		def listos=Consulta.createCriteria().list(){
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -1600,7 +1600,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reporteporosranking"
 		log.info "PARAMETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -1630,7 +1630,7 @@ class ConsultaController {
 		def listos=Consulta.createCriteria().list(){
 			createAlias("paciente","p")
 			institucion{
-				eq("id",authenticateService.userDomain().institucion.id)
+				eq("id",springSecurityService.getCurrentUser().institucion.id)
 			}
 			if(params.fechaDesde){
 				java.util.Date fechaDesde = df.parse(params.fechaDesde, new ParsePosition(0))
@@ -1663,7 +1663,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reporteporprimeravez"
 		log.info "PARAMEETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -1705,7 +1705,7 @@ class ConsultaController {
 		listPrimeravez = Consulta.createCriteria().list(){
 			and{
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde)
 					ge("fechaConsulta",fechaDesde)
@@ -1740,7 +1740,7 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE reportepordiagranking"
 		log.info "PARAMETROS: $params"
 		def list = Institucion.findAll()
-		def institucionInstance = authenticateService.userDomain().institucion//list.getAt(0)
+		def institucionInstance = springSecurityService.getCurrentUser().institucion//list.getAt(0)
 		String pathimage
 		String nameimage
 		def config
@@ -1782,7 +1782,7 @@ class ConsultaController {
 		listPrimeravez = Consulta.createCriteria().list(){
 			and{
 				institucion{
-					eq("id",authenticateService.userDomain().institucion.id)
+					eq("id",springSecurityService.getCurrentUser().institucion.id)
 				}
 				if(params.fechaDesde)
 					ge("fechaConsulta",fechaDesde)

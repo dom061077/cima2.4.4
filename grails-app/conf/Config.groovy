@@ -139,7 +139,7 @@ log4j = {
             'org.springframework',
             'org.hibernate',
             'net.sf.ehcache.hibernate'
-    debug  'grails.app.controllers'
+    //debug  'grails.app.controllers'
     root {
         debug 'stdout'/*, 'smtp'*/
         // additivity = true

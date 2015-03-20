@@ -9,7 +9,7 @@
 
 <html>
     <head>
-        <title><g:layoutTitle default="Grails" /></title>
+        <title><g:layoutTitle default="CIMA" /></title>
 		<META HTTP-EQUIV="Cache-Control" CONTENT ="no-cache"/> 
 		
 		<meta content='Complemento, Informatico, Administrativo, cima, online, web, sistema, complemento informatico administrativo, supra' name='Keywords'/>
