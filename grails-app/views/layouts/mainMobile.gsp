@@ -4,11 +4,16 @@
    <head>
        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       <link rel="stylesheet" href="${resource(dir:'css/mobile',file:'style.css')}" />
-       <link rel="stylesheet" href="${resource(dir:'css/mobile',file:'style.mobile.css')}">
+       <!--link rel="stylesheet" href="${resource(dir:'/css/mobile',file:'stylemobile.css')}" /-->
+       <!--link rel="stylesheet" href="${resource(dir:'/css/mobile',file:'style.mobile.css')}"-->
+       <link rel="stylesheet" href="${resource(dir:'/css/mobile',file:'jquery.mobile-1.4.5.min.css')}">
+       <link rel="stylesheet" href="${resource(dir:'/css/mobile',file:'jquery.mobile-1.4.5.min.map')}">
+
 
        <script src="${resource(dir:'js/jquery',file:'jquery1.8.js')}"></script>
-       <script src="${resource(dir:'js/jquery',file:'jquery.mobile.js')}"></script>
+       <!--script src="${resource(dir:'js/jquery',file:'jquery.mobile.js')}"></script-->
+       <script src="${resource(dir:'js/jquery',file:'jquery.mobile-1.4.5.min.js')}"></script>
+
 
 
    </head>
@@ -26,7 +31,7 @@
     </div>
     <div class="header" data-role="header">
         <span class="open left"><a href="#panel-01">&#61641;</a></span>
-        <span class="title">Hello World</span>
+        <span class="title" style="text-align: center;">CIMA MOBILE</span>
         <span class="open right"><a href="#panel-02">&#9776;</a></span>
     </div>
     <div class="content" data-role="content">
