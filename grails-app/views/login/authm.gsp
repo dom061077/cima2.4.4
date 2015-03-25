@@ -29,7 +29,7 @@
                 <input type="password" name="txtpassword" id="txtpassword" value="" placeholder="Contraseña" />
             </div>
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="_spring_security_remember_me">Recordarme en este equipo</label>
+                <label for="_spring_security_remember_me">Recordarme en este dispositivo</label>
                 <input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me"/>
             </div>
             <input type="button" value="Iniciar Sesión" id="btnLogin">

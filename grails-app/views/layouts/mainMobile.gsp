@@ -13,36 +13,73 @@
        <script src="${resource(dir:'js/jquery',file:'jquery1.8.js')}"></script>
        <!--script src="${resource(dir:'js/jquery',file:'jquery.mobile.js')}"></script-->
        <script src="${resource(dir:'js/jquery',file:'jquery.mobile-1.4.5.min.js')}"></script>
+       <script type="text/javascript">
+           $(document).on("pagecreate", "#demo-page",function(){
+               $(document).on("swiperleft swiperight", "#demo-page",function(e){
+                   if($(".ui-page-active").jqmData("panel")!== "open"){
+                       if(e.type === "swipeleft"){
+                           $("#right-panel").panel("open");
 
+                       }else if(e.type === "swiperright"){
+                           $("#left-panel").panel("open");
+                       }
+                   }
+               });
+           });
+       </script>
+       <style type="text/css" media="screen">
+       #demo-pag :not(INPUT):not(TEXTAREA){
+           -webkit-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none
+       }
+           /*Content styling.*/
+       dl{ font-family:"Times New Roman", Times, serif; padding: 1em; }
+       dt{ font-size: 2em; font-weight: bold; }
+       dt span{ font-size: .5em; color: #777; margin-left: .5em;}
+       dd{ font-size: 1.25em; margin: 1em 0 0; padding-bottom: 1em
+       ; border-bottom: 1px solid #eee;}
+       .back-btn{float: right; margin: 0 2em 1em 0;}
+
+       </style>
 
 
    </head>
 <body>
-<div class="demo-wrapper" data-role="page">
-    <!-- panel 01 -->
-    <div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-01">
+<div data-role="page" id="demo-page" data-url="demo-page">
+    <div data-role="header" data-theme="b">
+        <h1>CIMA</h1>
+        <sec:ifLoggedIn>
+        <a href="#left-panel" data-icon="carat-r" data-iconpos="notext"
+           data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">
+            Panel Izquierdo
+
+        </a>
+        <a href="#right-panel" data-icon="carat-l" data-iconpos="notext"
+           data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">
+            Panel Derecho
+        </a>
+        </sec:ifLoggedIn>
+    </div><!-- header -->
+    <div role="main" class="ui-content">
+          <g:layoutBody/>
+    </div><!-- /content -->
+    <sec:ifLoggedIn>
+    <div data-role="panel" id="left-panel" data-theme="b">
+        <p>Panel izquierdo</p>
         <ul>
-            <li class="newsfeed"><a href="#" title="Home">News Feed</a></li>
-            <li class="profile"><a href="#" title="Profile">Profile</a></li>
-            <li class="setting"><a href="#" title="Setting">Setting</a></li>
-            <li class="logout"><a href="#" title="Logout">Logout</a></li>
-            <li class="report"><a href="#" title="Report">Report Bug</a></li>
+          <li><a href="${createLink(controller:'profesionales',action:'list')}">Ver pacientes en espera Hoy</a></li>
+          <li><a>Ver turnos en otra fecha</a></li>
+          <li><a>Salir</a></li>
+
         </ul>
-    </div>
-    <div class="header" data-role="header">
-        <span class="open left"><a href="#panel-01">&#61641;</a></span>
-        <span class="title" style="text-align: center;">CIMA MOBILE</span>
-        <span class="open right"><a href="#panel-02">&#9776;</a></span>
-    </div>
-    <div class="content" data-role="content">
-        <g:layoutBody />    </div>
-    <!-- panel 02 -->
-    <div class="panel right" data-role="panel" data-position="right" data-display="overlay" id="panel-02">
-        <ul>
-            <li><a href="#" title="John Doe"><span class="avatar"></span>John Doe</a></li>
-            <li><a href="#" title="Jessy Doe"><span class="avatar"></span>Jessy Doe</a></li>
-        </ul>
-    </div>
+    </div><!-- /panel left-->
+    </sec:ifLoggedIn>
+    <div data-role="panel" id="right-panel" data-display="push" data-position="right"
+         data-theme="b">
+        <p>Panel izquierdo</p>
+    </div><!-- /panel right-->
+
 </div>
 </body>
 </html>

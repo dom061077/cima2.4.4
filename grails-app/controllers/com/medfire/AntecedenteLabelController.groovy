@@ -123,7 +123,7 @@ class AntecedenteLabelController {
 		//def profesionalInstance = Profesional.load(authenticateService.userDomain().profesionalAsignado?.id)
 		if(!userInstance.profesionalAsignado){
 			flash.message="No tiene un profesional asignado a su usuario"
-			render(view:"/index")
+			render(view: "/home/index")
 			return
 		}
 		
@@ -142,7 +142,7 @@ class AntecedenteLabelController {
 		def userInstance = User.load(authenticateService.userDomain().id)
 		if(!userInstance.profesionalAsignado){
 			flash.message="Su usuario no tiene un profesional asignado"
-			render(view:"/index")
+			render(view: "/home/index")
 			return
 		}
 		def antecedenteLabelInstance = new AntecedenteLabel()
