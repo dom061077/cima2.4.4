@@ -67,10 +67,10 @@
     <sec:ifLoggedIn>
     <div data-role="panel" id="left-panel" data-theme="b">
         <p>Panel izquierdo</p>
-        <ul>
+        <ul data-role="listview">
           <li><a href="${createLink(controller:'profesionales',action:'list')}">Ver pacientes en espera Hoy</a></li>
           <li><a>Ver turnos en otra fecha</a></li>
-          <li><a>Salir</a></li>
+          <li><a href="${createLink(controller:'logout',action:'index')}">Salir</a></li>
 
         </ul>
     </div><!-- /panel left-->
