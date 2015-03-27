@@ -12,6 +12,7 @@
 
 
 $(document).on('pageinit', '#home', function(){
+
     var url = 'http://api.themoviedb.org/3/',
         mode = 'search/movie?query=',
         movieName = '&query='+encodeURI('Batman'),
