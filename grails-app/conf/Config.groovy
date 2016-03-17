@@ -55,7 +55,6 @@ grails.logging.jul.usebridge = true
 grails.spring.bean.packages = []
 
 //grails.plugin.cloudfoundry.target = "http://api.cloudfoundry.com:3128"
-grails.plugin.springsecurity.active = false
 
 
 
@@ -127,6 +126,7 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
     //debug 'org.hibernate.SQL'
+    debug 'org.springframework.security'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -141,7 +141,7 @@ log4j = {
             'net.sf.ehcache.hibernate'
     //debug  'grails.app.controllers'
     root {
-        debug 'stdout'/*, 'smtp'*/
+        info 'stdout'/*, 'smtp'*/
         // additivity = true
         //debug 'stdout'
     }
@@ -192,11 +192,33 @@ bi.Institucion = [
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.active = true
 
+//grails.plugin.springsecurity.useSecurityEventListener = true
+//grails.plugin.springsecurity.onAbstractAuthenticationFailureEvent = { e, appCtx ->
+//    println "\nERROR auth failed for user $e.authentication.name: $e.exception.message\n"
+//}
+
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.medfire.security.Person'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.medfire.security.PersonAuthority'
 grails.plugin.springsecurity.authority.className = 'com.medfire.security.Authority'
 grails.plugin.springsecurity.requestMap.className = 'com.medfire.security.Requestmapa'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+
+
+
+/*
+* grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.rural.ganaderia.seguridad.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.rural.ganaderia.seguridad.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.rural.ganaderia.seguridad.Role'
+grails.plugin.springsecurity.requestMap.className = 'com.rural.ganaderia.seguridad.Requestmap'
+grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.authority.groupAuthorityNameField = 'authorities'
+grails.plugin.springsecurity.useRoleGroups = true
+grails.plugin.successHandler.alwaysUseDefault = true
+*
+* */
+
+
+
 //grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 //	'/':                              ['permitAll'],
 //	'/index':                         ['permitAll'],

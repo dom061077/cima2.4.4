@@ -4,6 +4,7 @@ package com.medfire.security
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import com.medfire.util.GUtilDomainClass
 
 @Transactional(readOnly = true)
 class PersonController {
@@ -50,6 +51,42 @@ class PersonController {
     def edit(Person personInstance) {
         respond personInstance
     }
+
+
+    def listjson () {
+        log.info "INGRESANDO AL CLOSURE listjson DEL CONTROLLER UserController"
+        log.info "PARAMETROS: ${params}"
+        def gud = new GUtilDomainClass(Person,params,grailsApplication)
+        def list=gud.listrefactor(false)
+        def totalregistros=gud.listrefactor(true)
+
+        def totalpaginas=new Float(totalregistros/Integer.parseInt(params.rows))
+        if (totalpaginas>0 && totalpaginas<1)
+            totalpaginas=1;
+        totalpaginas=totalpaginas.intValue()
+
+
+        log.debug "TOTAL USUARIOS: "+list.size()
+
+        def result='{"page":'+params.page+',"total":"'+totalpaginas+'","records":"'+totalregistros+'","rows":['
+        log.debug "CONSULTA DE USUARIOS: $list"
+        def flagaddcomilla=false
+        def urlimg
+        list.each{
+
+            if (flagaddcomilla)
+                result=result+','
+
+
+            result=result+'{"id":"'+it.id+'","cell":["'+it.id+'","'+(it.username==null?"":it.username)+'","'+it.institucion?.nombre+'","'+(it.userRealName==null?"":it.userRealName)+'","'+(it.enabled==null?"":(it.enabled==true?'SI':'NO'))+'","'+(it.esProfesional==null?"":it.esProfesional)+'","'+(it.email==null?"":it.email)+'","'+(it.profesionalAsignado?.nombre==null?"":it.profesionalAsignado?.nombre)+'"]}'
+
+            flagaddcomilla=true
+        }
+        result=result+']}'
+        render result
+
+    }
+
 
     @Transactional
     def update(Person personInstance) {
@@ -102,4 +139,6 @@ class PersonController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
 }

@@ -6,6 +6,8 @@
 import com.medfire.security.Authority
 import com.medfire.security.Person
 import com.medfire.security.PersonAuthority
+import com.medfire.Institucion
+import com.medfire.Profesional
 
 //http://grails.1312388.n4.nabble.com/MySQL-errors-after-standing-idle-for-a-period-td3328284.html
 //http://www.sylvioazevedo.com.br/?p=56
@@ -13,7 +15,7 @@ import com.medfire.security.PersonAuthority
 class BootStrap {
 	def authenticateService
     def init = { servletContext ->
-		//createAdminIfRequired()
+		createAdminIfRequired()
 		//DataSourceUtils.tune(servletContext)
     }
     def destroy = {
@@ -42,8 +44,11 @@ class BootStrap {
 	void createAdminIfRequired(){
         def userAdmin = Person.findByUsername('useradmin')
         if(!userAdmin){
-            def adminRole = new Authority(authority: 'ROLE_ADMIN').save(failOnError: true)
-            userAdmin = new Person(username: 'useradmin',password: 'useradmin').save(failOnError: true)
+            //def adminRole = new Authority(authority: 'ROLE_ADMIN').save(failOnError: true)
+            def adminRole = Authority.get(Long.parseLong("1"))
+            def institucionInstance = Institucion.get(Long.parseLong("1"))
+            def profesionalInstance = Profesional.get(Long.parseLong("1"))
+            userAdmin = new Person(institucion:  institucionInstance,userRealName:'Usuairo Administrador',username: 'useradmin',password: 'useradmin').save(failOnError: true)
             if(!userAdmin.authorities.contains(adminRole))
                 PersonAuthority.create(userAdmin,adminRole)
         }
