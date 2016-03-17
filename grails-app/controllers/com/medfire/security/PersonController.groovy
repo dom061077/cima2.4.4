@@ -53,7 +53,7 @@ class PersonController {
     }
 
 
-    def listjson () {
+    def listjson = {
         log.info "INGRESANDO AL CLOSURE listjson DEL CONTROLLER UserController"
         log.info "PARAMETROS: ${params}"
         def gud = new GUtilDomainClass(Person,params,grailsApplication)

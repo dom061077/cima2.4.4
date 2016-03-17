@@ -126,7 +126,7 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
     //debug 'org.hibernate.SQL'
-    debug 'org.springframework.security'
+    //debug 'org.springframework.security'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
