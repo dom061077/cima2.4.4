@@ -2,6 +2,7 @@ package com.medfire
 
 import org.springframework.web.multipart.commons .CommonsMultipartFile
 import com.medfire.util.GUtilDomainClass
+import grails.plugin.springsecurity.SpringSecurityUtils
 
 //import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
 
@@ -255,7 +256,8 @@ class ProfesionalController {
 		log.info "INGRESANDO AL CLOSURE listjson DEL CONTROLLER ProfesionalController"
 		log.info "PARAMETROS: ${params}"
 		def institucionInstance = springSecurityService.getCurrentUser().institucion
-		if (AuthorizeTools.ifAnyGranted("ROLE_USER,ROLE_PROFESIONAL")){
+		//if (AuthorizeTools.ifAnyGranted("ROLE_USER,ROLE_PROFESIONAL")){
+        if (SpringSecurityUtils.ifAnyGranted("ROLE_USER,ROLE_PROFESIONAL")){
 			params.altfilters = """{'groupOp':'AND','rules':[{'field':'institucion_id','op':'eq','data':'${institucionInstance.id}'}]}"""
 			params._search = "true"
 		}

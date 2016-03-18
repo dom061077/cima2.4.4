@@ -22,7 +22,22 @@ class PersonController {
     }
 
     def create() {
-        respond new Person(params)
+
+        def roles = Authority.list()
+        //userInstance.properties = params
+        //userInstance.enabled=true
+
+
+        roles.sort { r1, r2 ->
+            r1.authority <=> r2.authority
+        }
+        LinkedHashMap<Role, Boolean> roleMap = [:]
+        for (role in roles) {
+            roleMap[(role)]=false
+        }
+
+        //respond new Person(params)
+        return [personInstance: new Person(params),authorityList:roleMap]
     }
 
     @Transactional
@@ -78,7 +93,7 @@ class PersonController {
                 result=result+','
 
 
-            result=result+'{"id":"'+it.id+'","cell":["'+it.id+'","'+(it.username==null?"":it.username)+'","'+it.institucion?.nombre+'","'+(it.userRealName==null?"":it.userRealName)+'","'+(it.enabled==null?"":(it.enabled==true?'SI':'NO'))+'","'+(it.esProfesional==null?"":it.esProfesional)+'","'+(it.email==null?"":it.email)+'","'+(it.profesionalAsignado?.nombre==null?"":it.profesionalAsignado?.nombre)+'"]}'
+            result=result+'{"id":"'+it.id+'","cell":["'+it.id+'","'+(it.username==null?"":it.username)+'","'+it.institucion?.nombre+'","'+(it.userRealName==null?"":it.userRealName)+'","'+(it.enabled==null?"":(it.enabled==true?'SI':'NO'))+'","'+(it.esProfesional==null?"":it.esProfesional)/*+'","'+(it.email==null?"":it.email)*/+'","'+(it.profesionalAsignado?.nombre==null?"":it.profesionalAsignado?.nombre)+'"]}'
 
             flagaddcomilla=true
         }

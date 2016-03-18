@@ -16,7 +16,7 @@
                         url:'<%out << createLink(controller:'person',action:'listjson')%>',
                         datatype: "json",
                         width:680,
-                        colNames:['Id','Nombre de Usuario','Institución' , 'Nombre Real', 'Habilitado','Es profesional','E-mail','Prof.Asignado','Operaciones'],
+                        colNames:['Id','Nombre de Usuario','Institución' , 'Nombre Real', 'Habilitado','Es profesional'/*,'E-mail'*/,'Prof.Asignado','Operaciones'],
                         colModel:[
 
                             {name:'id',index:'id', width:40,search:false},
@@ -25,7 +25,7 @@
                             {name:'userRealName',index:'userRealName', width:100,sortable:true},
                             {name:'habilitado',index:'habilitado', width:80, align:"right", sortable:false,search:false},
                             {name:'esprofesional',index:'esprofesional', hidden:true, width:80, align:"right", sortable:false,search:false},
-                            {name:'email',index:'mail', width:80, search:false, align:"center", sortable:false},
+                            //{name:'email',index:'mail', width:80, search:false, align:"center", sortable:false},
                             {name:'profasignado',index:'profasignado', width:80, align:"center", sortable:false,search:false},
                             {name:'operaciones',index:'operaciones', width:55,sortable:false,search:false}
                         ],
@@ -69,7 +69,7 @@
 <body>
 <div class="nav">
     <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-    <span class="menuButton"><g:link class="create" action="createrefactor"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
 </div>
 <div class="body">
     <h1><g:message code="user.list.label" args="[entityName]" /></h1>

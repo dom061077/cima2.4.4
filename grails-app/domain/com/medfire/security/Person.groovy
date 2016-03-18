@@ -15,6 +15,8 @@ class Person {
 	boolean accountLocked
 	boolean passwordExpired
 
+    String email
+
     boolean esProfesional=false
 
 
