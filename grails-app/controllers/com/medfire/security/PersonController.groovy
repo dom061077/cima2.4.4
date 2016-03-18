@@ -21,6 +21,7 @@ class PersonController {
         respond personInstance
     }
 
+
     def create() {
 
         def roles = Authority.list()
