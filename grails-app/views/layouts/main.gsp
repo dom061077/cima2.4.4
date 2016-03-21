@@ -242,7 +242,7 @@
 						<li><a href="#" class="dir">Archivo</a>
 							<ul>
 								<sec:ifAnyGranted roles="ROLE_ADMIN">
-									<li><a href="${createLink(controller:'user')}">Usuarios</a></li>
+									<li><a href="${createLink(controller:'person')}">Usuarios</a></li>
 									<li><a href="${createLink(controller:'role')}">Roles</a></li>
 									<li><a href="${createLink(controller:'requestmap')}">Requestmap</a></li>
 								</sec:ifAnyGranted>

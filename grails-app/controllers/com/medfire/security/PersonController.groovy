@@ -32,7 +32,7 @@ class PersonController {
         roles.sort { r1, r2 ->
             r1.authority <=> r2.authority
         }
-        LinkedHashMap<Role, Boolean> roleMap = [:]
+        LinkedHashMap<Authority, Boolean> roleMap = [:]
         for (role in roles) {
             roleMap[(role)]=false
         }
@@ -43,13 +43,28 @@ class PersonController {
 
     @Transactional
     def save(Person personInstance) {
+        log.info "Parametros: $params"
         if (personInstance == null) {
             notFound()
             return
         }
 
         if (personInstance.hasErrors()) {
-            respond personInstance.errors, view:'create'
+            def roles = Authority.list()
+            roles.sort { r1, r2 ->
+                r1.authority <=> r2.authority
+
+            }
+            LinkedHashMap<Authority, Boolean> roleMap = [:]
+            for (role in roles) {
+                roleMap[(role)]=false
+            }
+
+            personInstance.errors.each{
+                log.info "Error: "+it.getAt("username")
+            }
+
+            respond personInstance.errors,model:[authorityList: roleMap], view:'create'
             return
         }
 
