@@ -23,6 +23,7 @@ class PersonController {
 
 
     def create() {
+        log.info "Mètodo create. Paràmetros: $params"
 
         def roles = Authority.list()
         //userInstance.properties = params
@@ -49,27 +50,43 @@ class PersonController {
             return
         }
 
+        def authorities = Authority.list()
+        def cantAuthorities=0
+        authorities.sort { r1, r2 ->
+            r1.authority <=> r2.authority
+        }
+        LinkedHashMap<Authority, Boolean> authorityMap = [:]
+        for (authority in authorities) {
+            authorityMap[(authority)]=false
+        }
+
+        def authorityAux
+        for (String key in params.keySet()) {
+            if (key.contains('ROLE') && 'on' == params.get(key)) {
+                authorityAux=Authority.findByAuthority(key)
+                authorityMap[authorityAux]=true
+                cantAuthorities++
+            }
+        }
+
         if (personInstance.hasErrors()) {
-            def roles = Authority.list()
-            roles.sort { r1, r2 ->
-                r1.authority <=> r2.authority
 
-            }
-            LinkedHashMap<Authority, Boolean> roleMap = [:]
-            for (role in roles) {
-                roleMap[(role)]=false
-            }
-
-            personInstance.errors.each{
-                log.info "Error: "+it.getAt("username")
-            }
-
-            respond personInstance.errors,model:[authorityList: roleMap], view:'create'
+            respond personInstance.errors,model:[authorityList: authorityMap], view:'create'
             return
         }
 
-        personInstance.save flush:true
 
+
+        if(cantAuthorities>1){
+            personInstance.validate()
+            personInstance.errors.rejectValue("authorities","user.roles.exluyentes","Solo puede selecionar un Rol")
+            render(view: "create", model: [personInstance: personInstance,authorityList:authorityMap])
+            return
+        }
+
+
+        personInstance.save flush:true
+        addAuthorities(personInstance)
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
@@ -168,6 +185,18 @@ class PersonController {
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
+        }
+    }
+
+
+    private void addAuthorities(person) {
+        log.info "INGRESANDO AL METODO PRIVADO addAuthorities"
+        for (String key in params.keySet()) {
+            if (key.contains('ROLE') && 'on' == params.get(key)) {
+                log.debug "ROL AGREGADO: "+key
+                def authority = Authority.findByAuthority(key)
+                PersonAuthority.create(person,authority)
+            }
         }
     }
 

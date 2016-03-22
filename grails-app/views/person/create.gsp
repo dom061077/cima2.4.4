@@ -131,14 +131,14 @@
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
-            <label for="passwd"><g:message code="user.passwd.label" default="Passwd" /></label>
+            <label for="password"><g:message code="user.passwd.label" default="Passwd" /></label>
         </div>
         <div class="span-4">
-            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="passwd" value="${personInstance?.password}" />
+            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="password" value="${personInstance?.password}" />
         </div>
         <g:hasErrors bean="${personInstance}" field="password">
 
-            <g:renderErrors bean="${personInstance}" as="list" field="passwd"/>
+            <g:renderErrors bean="${personInstance}" as="list" field="password"/>
             </div>
         </g:hasErrors>
 
