@@ -96,7 +96,11 @@ class PersonController {
         }
     }
 
+
     def edit(Person personInstance) {
+
+        log.info "XXXXXXXXX $personInstance"
+        log.info "MASSS...dddd"
         respond personInstance
     }
 
