@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="275b3bab-51d6-481f-88bd-07af95c48c9e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/medfire/security/PersonController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/medfire/security/PersonController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/person/create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/person/create.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/person/edit.gsp" afterPath="$PROJECT_DIR$/grails-app/views/person/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/person/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/person/index.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medfireweb.ipr" afterPath="$PROJECT_DIR$/medfireweb.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medfireweb.iws" afterPath="$PROJECT_DIR$/medfireweb.iws" />
     </list>
     <ignored path="medfireweb.iws" />
@@ -2905,88 +2898,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="editrefactor.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/editrefactor.gsp">
+      <file leaf-file-name="PersonController.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/security/PersonController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="0" selection-start="40" selection-end="13427" vertical-scroll-proportion="0.0">
+            <state line="100" column="73" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.31325302">
               <folding>
-                <marker date="1457970898408" expanded="true" signature="654:3058" placeholder="{...}" />
-                <marker date="1457970898408" expanded="true" signature="709:1771" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;profesional&quot;,action:'listjson')%&gt;&quot;...}" />
-                <marker date="1457970898408" expanded="true" signature="892:1637" placeholder="[...]" />
-                <marker date="1457970898408" expanded="true" signature="1837:2100" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;profesional&quot;,action:'listjsonautocomplete')%&gt;&quot;...}" />
-                <marker date="1457970898408" expanded="true" signature="1994:2085" placeholder="{...}" />
-                <marker date="1457970898408" expanded="true" signature="2016:2075" placeholder="{...}" />
-                <marker date="1457970898408" expanded="true" signature="2213:2704" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;institucion&quot;,action:'listjson')%&gt;&quot;...}" />
-                <marker date="1457970898408" expanded="true" signature="2396:2570" placeholder="[...]" />
-                <marker date="1457970898408" expanded="true" signature="2770:3033" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;institucion&quot;,action:'listjsonautocomplete')%&gt;&quot;...}" />
-                <marker date="1457970898408" expanded="true" signature="2927:3018" placeholder="{...}" />
-                <marker date="1457970898408" expanded="true" signature="2949:3008" placeholder="{...}" />
+                <element signature="e#32#83#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/person/index.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="51" selection-start="2848" selection-end="2852" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/User.groovy">
+      <file leaf-file-name="Authority.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/security/Authority.groovy">
           <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="26" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
+            <state line="3" column="6" selection-start="37" selection-end="37" vertical-scroll-proportion="-1.1860465">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="UserController.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/UserController.groovy">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/UserController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="21" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonController.groovy" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/security/PersonController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="50" selection-start="2971" selection-end="2971" vertical-scroll-proportion="0.32380953">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="47" selection-start="550" selection-end="550" vertical-scroll-proportion="2.36">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="47" selection-start="5078" selection-end="5078" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/person/show.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="39" selection-start="5383" selection-end="5387" vertical-scroll-proportion="0.0">
+            <state line="128" column="0" selection-start="3631" selection-end="4065" vertical-scroll-proportion="-19.217392">
               <folding />
             </state>
           </provider>
@@ -3078,6 +3016,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3096,10 +3036,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medfireweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cima2.4.4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medfireweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cima2.4.4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3242,7 +3212,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32935154" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3251,21 +3221,21 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49772382" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5068259" sideWeight="0.6980273" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17526555" sideWeight="0.46245733" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17526555" sideWeight="0.67064846" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7235495" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886191" sideWeight="0.46245733" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.53754264" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24810319" sideWeight="0.49317408" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53754264" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3326,123 +3296,99 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/ObraSocialController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="34" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.033663366" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="35" selection-start="2186" selection-end="2186" vertical-scroll-proportion="0.031021899" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/security/Person.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="192" selection-end="200" vertical-scroll-proportion="0.032818533" />
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/UserController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="36" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.032380953" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages_es.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="41" selection-start="7812" selection-end="7812" vertical-scroll-proportion="0.03219697" />
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/ObraSocial.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="34" selection-start="86" selection-end="86" vertical-scroll-proportion="0.17068273" />
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/person/create.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="62" selection-start="1375" selection-end="1375" vertical-scroll-proportion="-5.897959" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/person/edit.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="0" selection-start="11101" selection-end="11101" vertical-scroll-proportion="-9.489796" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/editrefactor.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="0" selection-start="40" selection-end="13427" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1457970898408" expanded="true" signature="654:3058" placeholder="{...}" />
-            <marker date="1457970898408" expanded="true" signature="709:1771" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;profesional&quot;,action:'listjson')%&gt;&quot;...}" />
-            <marker date="1457970898408" expanded="true" signature="892:1637" placeholder="[...]" />
-            <marker date="1457970898408" expanded="true" signature="1837:2100" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;profesional&quot;,action:'listjsonautocomplete')%&gt;&quot;...}" />
-            <marker date="1457970898408" expanded="true" signature="1994:2085" placeholder="{...}" />
-            <marker date="1457970898408" expanded="true" signature="2016:2075" placeholder="{...}" />
-            <marker date="1457970898408" expanded="true" signature="2213:2704" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;institucion&quot;,action:'listjson')%&gt;&quot;...}" />
-            <marker date="1457970898408" expanded="true" signature="2396:2570" placeholder="[...]" />
-            <marker date="1457970898408" expanded="true" signature="2770:3033" placeholder="{&quot;source&quot;: &quot;&lt;% out &lt;&lt; g.createLink(controller:&quot;institucion&quot;,action:'listjsonautocomplete')%&gt;&quot;...}" />
-            <marker date="1457970898408" expanded="true" signature="2927:3018" placeholder="{...}" />
-            <marker date="1457970898408" expanded="true" signature="2949:3008" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/person/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="51" selection-start="2848" selection-end="2852" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/User.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
+        <state line="44" column="51" selection-start="2848" selection-end="2852" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/UserController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="21" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/person/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="39" selection-start="5383" selection-end="5387" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="71" column="21" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.032818533" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="47" selection-start="550" selection-end="550" vertical-scroll-proportion="2.36">
-          <folding />
-        </state>
+        <state line="11" column="47" selection-start="550" selection-end="550" vertical-scroll-proportion="0.031021899" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="47" selection-start="5078" selection-end="5078" vertical-scroll-proportion="0.0">
+        <state line="149" column="47" selection-start="5078" selection-end="5078" vertical-scroll-proportion="0.030303031" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/person/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="39" selection-start="5383" selection-end="5387" vertical-scroll-proportion="0.55711424" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/plugin_classes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="41" selection-start="251" selection-end="251" vertical-scroll-proportion="0.18853974" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="25" selection-start="169" selection-end="169" vertical-scroll-proportion="0.21212122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.5766425" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.55839413" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/User.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="26" selection-start="114" selection-end="114" vertical-scroll-proportion="0.034136545" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/security/UserController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="6" selection-start="1030" selection-end="1030" vertical-scroll-proportion="-0.6951673">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/medfire/security/Authority.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6" selection-start="37" selection-end="37" vertical-scroll-proportion="-1.1860465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/UserController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="0" selection-start="3631" selection-end="4065" vertical-scroll-proportion="-19.217392">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/medfire/security/PersonController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="50" selection-start="2971" selection-end="2971" vertical-scroll-proportion="0.32380953">
-          <folding />
+        <state line="100" column="73" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.31325302">
+          <folding>
+            <element signature="e#32#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
