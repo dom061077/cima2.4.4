@@ -99,9 +99,26 @@ class PersonController {
 
     def edit(Person personInstance) {
 
-        log.info "XXXXXXXXX $personInstance"
-        log.info "MASSS...dddd"
-        respond personInstance
+        log.info "Método edit"
+        def authorities = Authority.list()
+        authorities.sort { r1, r2 ->
+            r1.authority <=> r2.authority
+        }
+        Set personAuthorityNames = []
+        for (authority in personInstance.authorities) {
+            personAuthorityNames << authority.authority
+        }
+        LinkedHashMap<Authority, Boolean> authorityMap = [:]
+        for (authority in authorities) {
+            //log.debug "role: "+role
+
+            authorityMap[(authority)] = personAuthorityNames.contains(authority.authority)
+        }
+        //return [userInstance: userInstance, authorityList: roleMap]
+
+
+
+        respond personInstance,model: [authorityList:authorityMap]
     }
 
 
