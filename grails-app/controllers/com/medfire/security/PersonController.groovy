@@ -9,7 +9,7 @@ import com.medfire.util.GUtilDomainClass
 @Transactional(readOnly = true)
 class PersonController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST"/*, update: "PUT"*/, delete: "DELETE"]
 
     def index(Integer max) {
         log.info "Index method"
@@ -159,10 +159,25 @@ class PersonController {
 
     @Transactional
     def update(Person personInstance) {
+        log.info "METODO update, PARAMETROS: $params"
+
+        respond personInstance.errors, view:'edit'
+        return
+
+
         if (personInstance == null) {
             notFound()
             return
         }
+        def oldPasswd = userInstance.passwd
+        log.info "antes del bindin con params"
+        userInstance.properties = params
+        log.info "PASSWORD PLANO:"+params.passwd
+        if(!oldPasswd.equals(params.passwd)){
+            log.info "PASSWORD DISTINTA DE LA ANTERIOR"
+            userInstance.passwd = authenticateService.encodePassword(params.passwd)
+        }
+
 
         if (personInstance.hasErrors()) {
             respond personInstance.errors, view:'edit'

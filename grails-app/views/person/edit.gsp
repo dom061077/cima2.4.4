@@ -85,15 +85,15 @@
     <g:if test="${flash.message}">
         <div class="message"><h3>${flash.message}</h3></div>
     </g:if>
-    <g:hasErrors bean="${userInstance}">
+    <g:hasErrors bean="${personInstance}">
         <div class="ui-state-error ui-corner-all">
-            <g:renderErrors bean="${userInstance}" as="list" />
+            <g:renderErrors bean="${personInstance}" as="list" />
         </div>
     </g:hasErrors>
     <br/>
-    <g:form method="post" >
-        <g:hiddenField name="id" value="${userInstance?.id}" />
-        <g:hiddenField name="version" value="${userInstance?.version}" />
+    <g:form action="update" method="put" >
+        <g:hiddenField name="id" value="${personInstance?.id}" />
+        <g:hiddenField name="version" value="${personInstance?.version}" />
         <g:hasErrors bean="${userInstance}" field="username">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
@@ -101,108 +101,108 @@
             <label for="username"><g:message code="user.username.label" default="Username" /></label>
         </div>
         <div class="span-4">
-            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="username" value="${userInstance?.username}" />
+            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="username" value="${personInstance?.username}" />
         </div>
-        <g:hasErrors bean="${userInstance}" field="username">
-            <g:renderErrors bean="${userInstance}" as="list" field="username"/>
+        <g:hasErrors bean="${personInstance}" field="username">
+            <g:renderErrors bean="${personInstance}" as="list" field="username"/>
             </div>
         </g:hasErrors>
 
 
         <div class="clear"></div>
-        <g:hasErrors bean="${userInstance}" field="userRealName">
+        <g:hasErrors bean="${personInstance}" field="userRealName">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="userRealName"><g:message code="user.userRealName.label" default="User Real Name" /></label>
         </div>
         <div class="span-4">
-            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="userRealName" value="${userInstance?.userRealName}" />
+            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="userRealName" value="${personInstance?.userRealName}" />
         </div>
-        <g:hasErrors bean="${userInstance}" field="userRealName">
-            <g:renderErrors bean="${userInstance}" as="list" field="userRealName"/>
+        <g:hasErrors bean="${personInstance}" field="userRealName">
+            <g:renderErrors bean="${personInstance}" as="list" field="userRealName"/>
             </div>
         </g:hasErrors>
 
         <div class="clear"></div>
-        <g:hasErrors bean="${userInstance}" field="passwd">
+        <g:hasErrors bean="${personInstance}" field="passwd">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="passwd"><g:message code="user.passwd.label" default="Passwd" /></label>
         </div>
         <div class="span-4">
-            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="passwd" value="${userInstance?.passwd}" />
+            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="passwd" value="${personInstance?.password}" />
         </div>
-        <g:hasErrors bean="${userInstance}" field="passwd">
+        <g:hasErrors bean="${personInstance}" field="passwd">
 
-            <g:renderErrors bean="${userInstance}" as="list" field="passwd"/>
+            <g:renderErrors bean="${personInstance}" as="list" field="passwd"/>
             </div>
         </g:hasErrors>
 
         <div class="clear"></div>
-        <g:hasErrors bean="${userInstance}" field="profesionalAsignado">
+        <g:hasErrors bean="${personInstance}" field="profesionalAsignado">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="profesionalAsignado"><g:message code="user.profesionalAsignado.label" default="Profesional Asignado" /></label>
         </div>
         <div class="span-4">
-            <g:textField name="profesionalDesc" id="profesionalDescId"  class="ui-widget ui-corner-all ui-widget-content" value="${userInstance?.profesionalAsignado?.nombre}" />
+            <g:textField name="profesionalDesc" id="profesionalDescId"  class="ui-widget ui-corner-all ui-widget-content" value="${personInstance?.profesionalAsignado?.nombre}" />
         </div>
-        <g:hiddenField id="profesionalId" name="profesionalAsignadoId" value="${userInstance?.profesionalAsignado?.id}" />
-        <g:hasErrors bean="${userInstance}" field="profesionalAsignado">
-            <g:renderErrors bean="${userInstance}" as="list" field="profesionalAsignado"/>
+        <g:hiddenField id="profesionalId" name="profesionalAsignadoId" value="${personInstance?.profesionalAsignado?.id}" />
+        <g:hasErrors bean="${personInstance}" field="profesionalAsignado">
+            <g:renderErrors bean="${personInstance}" as="list" field="profesionalAsignado"/>
             </div>
         </g:hasErrors>
 
         <div class="clear"></div>
 
-        <g:hasErrors bean="${userInstance}" field="institucion">
+        <g:hasErrors bean="${personInstance}" field="institucion">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="institucionDesc"><g:message code="user.institucion.label" default="Institucion" /></label>
         </div>
         <div class="span-4">
-            <g:textField name="institucionDesc" id="institucionDescId"  class="ui-widget ui-corner-all ui-widget-content" value="${userInstance?.institucion?.nombre}" />
+            <g:textField name="institucionDesc" id="institucionDescId"  class="ui-widget ui-corner-all ui-widget-content" value="${personInstance?.institucion?.nombre}" />
         </div>
-        <g:hiddenField id="institucionId" name="institucionId" value="${userInstance?.institucion?.id}" />
-        <g:hasErrors bean="${userInstance}" field="institucion">
-            <g:renderErrors bean="${userInstance}" as="list" field="institucion"/>
+        <g:hiddenField id="institucionId" name="institucionId" value="${personInstance?.institucion?.id}" />
+        <g:hasErrors bean="${personInstance}" field="institucion">
+            <g:renderErrors bean="${personInstance}" as="list" field="institucion"/>
             </div>
         </g:hasErrors>
 
 
         <div class="clear"></div>
-        <g:hasErrors bean="${userInstance}" field="email">
+        <g:hasErrors bean="${personInstance}" field="email">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="email"><g:message code="user.email.label" default="Email" /></label>
         </div>
         <div class="span-4">
-            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="email" value="${userInstance?.email}" />
+            <g:textField class="ui-widget ui-corner-all ui-widget-content" name="email" value="${personInstance?.email}" />
         </div>
-        <g:hasErrors bean="${userInstance}" field="email">
-            <g:renderErrors bean="${userInstance}" as="list" field="email"/>
+        <g:hasErrors bean="${personInstance}" field="email">
+            <g:renderErrors bean="${personInstance}" as="list" field="email"/>
             </div>
         </g:hasErrors>
 
 
 
         <div class="clear"></div>
-        <g:hasErrors bean="${userInstance}" field="esProfesional">
+        <g:hasErrors bean="${personInstance}" field="esProfesional">
             <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
         </g:hasErrors>
         <div class="span-3 spanlabel">
             <label for="esProfesional"><g:message code="user.esProfesional.label" default="Es Profesional" /></label>
         </div>
         <div class="span-4">
-            <g:checkBox name="esProfesional" value="${userInstance?.esProfesional}" />
+            <g:checkBox name="esProfesional" value="${personInstance?.esProfesional}" />
         </div>
-        <g:hasErrors bean="${userInstance}" field="esProfesional">
-            <g:renderErrors bean="${userInstance}" as="list" field="esProfesional"/>
+        <g:hasErrors bean="${personInstance}" field="esProfesional">
+            <g:renderErrors bean="${personInstance}" as="list" field="esProfesional"/>
             </div>
         </g:hasErrors>
 
@@ -211,21 +211,20 @@
             <label for="enabled"><g:message code="user.enabled.label" default="Habilitado" /></label>
         </div>
         <div class="span-4">
-            <g:checkBox name="enabled" value="${userInstance?.enabled}" />
+            <g:checkBox name="enabled" value="${personInstance?.enabled}" />
         </div>
 
         <div class="clear"></div>
         <fieldset>
             <legend>Roles:</legend>
             <g:each var="entry" in="${authorityList}">
-
-                ${entry.key.description?.encodeAsHTML()}
+                ${entry.key.authority?.encodeAsHTML()}
                 <g:checkBox name="${entry.key.authority}" value="${entry.value}"/>
             </g:each>
         </fieldset>
 
         <div class="buttons">
-            <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="updaterefactor" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
+            <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
             <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
         </div>
     </g:form>
