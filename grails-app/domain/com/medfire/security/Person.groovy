@@ -49,8 +49,9 @@ class Person {
 
 	}
 
-	Set<Authority> getAuthorities() {
-		PersonAuthority.findAllByPerson(this).collect { it.authority }
+	List<Authority> getAuthorities() {
+
+        return PersonAuthority.getAuthorities(this)
 	}
 
 	def beforeInsert() {

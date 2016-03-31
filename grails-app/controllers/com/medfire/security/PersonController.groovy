@@ -18,8 +18,12 @@ class PersonController {
     }
 
     def show(Person personInstance) {
-        respond personInstance
+        personInstance.getAuthorities().each{
+            log.info "Authority: "+it.description
+        }
+        respond personInstance,model: [authorityList: PersonAuthority.getAuthorities(personInstance)]
     }
+
 
 
     def create() {
@@ -161,21 +165,14 @@ class PersonController {
     def update(Person personInstance) {
         log.info "METODO update, PARAMETROS: $params"
 
-        respond personInstance.errors, view:'edit'
+/*        respond personInstance.errors, view:'edit'
         return
+        */
 
 
         if (personInstance == null) {
             notFound()
             return
-        }
-        def oldPasswd = userInstance.passwd
-        log.info "antes del bindin con params"
-        userInstance.properties = params
-        log.info "PASSWORD PLANO:"+params.passwd
-        if(!oldPasswd.equals(params.passwd)){
-            log.info "PASSWORD DISTINTA DE LA ANTERIOR"
-            userInstance.passwd = authenticateService.encodePassword(params.passwd)
         }
 
 
@@ -184,8 +181,35 @@ class PersonController {
             return
         }
 
-        personInstance.save flush:true
 
+        def authorities = Authority.list()
+        def cantAuthorities=0
+        authorities.sort { r1, r2 ->
+            r1.authority <=> r2.authority
+        }
+        LinkedHashMap<Authority, Boolean> authorityMap = [:]
+        for (authority in authorities) {
+            authorityMap[(authority)]=false
+        }
+
+        def authorityAux
+        for (String key in params.keySet()) {
+            if (key.contains('ROLE') && 'on' == params.get(key)) {
+                authorityAux=Authority.findByAuthority(key)
+                authorityMap[authorityAux]=true
+                cantAuthorities++
+            }
+        }
+        if(cantAuthorities>1){
+            personInstance.validate()
+            personInstance.errors.rejectValue("authorities","user.roles.exluyentes","Solo puede selecionar un Rol")
+            render(view: "edit", model: [personInstance: personInstance,authorityList:authorityMap])
+            return
+        }
+
+        personInstance.save flush:true
+        PersonAuthority.removeAll(personInstance,true)
+        addAuthorities(personInstance)
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])

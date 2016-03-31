@@ -1,125 +1,108 @@
 
 <%@ page import="com.medfire.security.Person" %>
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-person" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-person" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list person">
-			
-				<g:if test="${personInstance?.username}">
-				<li class="fieldcontain">
-					<span id="username-label" class="property-label"><g:message code="person.username.label" default="Username" /></span>
-					
-						<span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${personInstance}" field="username"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="person.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${personInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.profesionalAsignado}">
-				<li class="fieldcontain">
-					<span id="profesionalAsignado-label" class="property-label"><g:message code="person.profesionalAsignado.label" default="Profesional Asignado" /></span>
-					
-						<span class="property-value" aria-labelledby="profesionalAsignado-label"><g:link controller="profesional" action="show" id="${personInstance?.profesionalAsignado?.id}">${personInstance?.profesionalAsignado?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.esProfesional}">
-				<li class="fieldcontain">
-					<span id="esProfesional-label" class="property-label"><g:message code="person.esProfesional.label" default="Es Profesional" /></span>
-					
-						<span class="property-value" aria-labelledby="esProfesional-label"><g:formatBoolean boolean="${personInstance?.esProfesional}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.accountExpired}">
-				<li class="fieldcontain">
-					<span id="accountExpired-label" class="property-label"><g:message code="person.accountExpired.label" default="Account Expired" /></span>
-					
-						<span class="property-value" aria-labelledby="accountExpired-label"><g:formatBoolean boolean="${personInstance?.accountExpired}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.accountLocked}">
-				<li class="fieldcontain">
-					<span id="accountLocked-label" class="property-label"><g:message code="person.accountLocked.label" default="Account Locked" /></span>
-					
-						<span class="property-value" aria-labelledby="accountLocked-label"><g:formatBoolean boolean="${personInstance?.accountLocked}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.enabled}">
-				<li class="fieldcontain">
-					<span id="enabled-label" class="property-label"><g:message code="person.enabled.label" default="Enabled" /></span>
-					
-						<span class="property-value" aria-labelledby="enabled-label"><g:formatBoolean boolean="${personInstance?.enabled}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.institucion}">
-				<li class="fieldcontain">
-					<span id="institucion-label" class="property-label"><g:message code="person.institucion.label" default="Institucion" /></span>
-					
-						<span class="property-value" aria-labelledby="institucion-label"><g:link controller="institucion" action="show" id="${personInstance?.institucion?.id}">${personInstance?.institucion?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.passwordExpired}">
-				<li class="fieldcontain">
-					<span id="passwordExpired-label" class="property-label"><g:message code="person.passwordExpired.label" default="Password Expired" /></span>
-					
-						<span class="property-value" aria-labelledby="passwordExpired-label"><g:formatBoolean boolean="${personInstance?.passwordExpired}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.userRealName}">
-				<li class="fieldcontain">
-					<span id="userRealName-label" class="property-label"><g:message code="person.userRealName.label" default="User Real Name" /></span>
-					
-						<span class="property-value" aria-labelledby="userRealName-label"><g:fieldValue bean="${personInstance}" field="userRealName"/></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:personInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${personInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="layout" content="main" />
+    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
+    <title><g:message code="default.show.label" args="[entityName]" /></title>
+</head>
+<body>
+<div class="nav">
+    <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+    <span class="menuButton"><g:link class="create" action="createrefactor"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+</div>
+<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+
+<div class="span-10 prepend-3 body">
+    <g:if test="${flash.message}">
+        <div class="message"><h3>${flash.message}</h3></div>
+    </g:if>
+    <div class="dialog">
+        <div class="span-3">
+            <g:message code="user.id.label" default="Id" />
+        </div>
+
+        <div class="span-4">
+            ${fieldValue(bean: personInstance, field: "id")}
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.username.label" default="Username" />
+        </div>
+        <div class="span-4">
+            ${fieldValue(bean: personInstance, field: "username")}
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.userRealName.label" default="User Real Name" />
+        </div>
+        <div class="span-4">
+            ${fieldValue(bean: personInstance, field: "userRealName")}
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.enabled.label" default="Enabled" />
+        </div>
+        <div class="span-4">
+            <g:formatBoolean boolean="${personInstance?.enabled}" true="SI" false="NO" />
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.profesionalAsignado.label" default="Profesional Asignado" />
+        </div>
+        <div class="span-4">
+            ${personInstance?.profesionalAsignado?.nombre?.encodeAsHTML()}
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.institucion.label" default="Institucion" />
+        </div>
+        <div class="span-4">
+            ${personInstance?.institucion?.nombre?.encodeAsHTML()}
+        </div>
+
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.email.label" default="Email" />
+        </div>
+        <div class="span-4">
+            ${fieldValue(bean: personInstance, field: "email")}
+        </div>
+
+        <div class="clear"></div>
+        <div class="span-3">
+            <g:message code="user.esProfesional.label" default="Es Profesional" />
+        </div>
+        <div class="span-4">
+            <g:formatBoolean boolean="${personInstance?.esProfesional}" true="SI" false="NO" />
+        </div>
+
+        <div class="clear"></div>
+        <fieldset>
+            <legend>Roles:</legend>
+            <g:each in="${personInstance.getAuthorities()}" var="a">
+                ${a?.authority.encodeAsHTML()}
+            </g:each>
+        </fieldset>
+
+        <div class="clear"></div>
+
+    </div>
+    <div class="buttons">
+        <g:form>
+            <g:hiddenField name="id" value="${personInstance?.id}" />
+            <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="editrefactor" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+            <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+        </g:form>
+    </div>
+</div>
+</body>
 </html>

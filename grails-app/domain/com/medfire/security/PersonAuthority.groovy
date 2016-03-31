@@ -58,6 +58,17 @@ class PersonAuthority implements Serializable {
 		rowCount > 0
 	}
 
+    static List<Authority> getAuthorities(Person u){
+        def auths = []
+        PersonAuthority.where {
+            person == Person.load(u.id)
+        }.list().each{
+            auths << it.authority
+        }
+        return auths
+    }
+
+
 	static void removeAll(Person u, boolean flush = false) {
 		if (u == null) return
 
