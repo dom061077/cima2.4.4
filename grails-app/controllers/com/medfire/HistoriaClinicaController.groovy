@@ -127,7 +127,7 @@ class HistoriaClinicaController {
 		def consultaInstance = new Consulta(params.consulta)
 		def pacienteInstance = Paciente.get(params.pacienteId.toLong())
 		def eventInstance
-		def userInstance = User.load(springSecurityService.getCurrentUser().id)
+		def userInstance = Person.load(springSecurityService.getCurrentUser().id)
 		def profesionalInstance = Profesional.load(userInstance.profesionalAsignado.id)
 		consultaInstance.profesional=profesionalInstance
 		consultaInstance.institucion = springSecurityService.getCurrentUser().institucion

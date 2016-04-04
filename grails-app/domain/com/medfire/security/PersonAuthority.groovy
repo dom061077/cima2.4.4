@@ -42,7 +42,7 @@ class PersonAuthority implements Serializable {
 	static PersonAuthority create(Person person, Authority authority, boolean flush = false) {
 		def instance = new PersonAuthority(person: person, authority: authority)
 		instance.save(flush: flush, insert: true)
-		instance
+
 	}
 
 	static boolean remove(Person u, Authority r, boolean flush = false) {

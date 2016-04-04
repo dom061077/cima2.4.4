@@ -39,7 +39,8 @@ class Event {
     }
 	
 	static mapping = {
-		tiempoAtencion formula:"tiempoatencion(fecha_start,fecha_end)"
+        //tiempoAtencion formula:"TIMESTAMPDIFF(MINUTE,fecha_start,fecha_end)"
+        tiempoAtencion formula:"fecha_start-fecha_end"
 	}
 	
 	

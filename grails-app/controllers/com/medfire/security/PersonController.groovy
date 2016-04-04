@@ -164,10 +164,11 @@ class PersonController {
     @Transactional
     def update(Person personInstance) {
         log.info "METODO update, PARAMETROS: $params"
+        log.info "ID DE PERSON:"
 
-/*        respond personInstance.errors, view:'edit'
-        return
-        */
+//        respond personInstance.errors, view:'edit'
+//        return
+
 
 
         if (personInstance == null) {
@@ -255,6 +256,8 @@ class PersonController {
             if (key.contains('ROLE') && 'on' == params.get(key)) {
                 log.debug "ROL AGREGADO: "+key
                 def authority = Authority.findByAuthority(key)
+                log.info "Person Id: "+person.id
+                log.info "Authority Id: "+authority.id
                 PersonAuthority.create(person,authority)
             }
         }
