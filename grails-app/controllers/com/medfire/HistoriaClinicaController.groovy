@@ -321,7 +321,7 @@ class HistoriaClinicaController {
 		
 		def flagantecedente = false
 		
-		def userInstance = User.load(springSecurityService.getCurrentUser().id)
+		def userInstance = Person.load(springSecurityService.getCurrentUser().id)//User.load(springSecurityService.getCurrentUser().id)
 		def profesionalInstance = Profesional.load(userInstance.profesionalAsignado.id)
 
 		

@@ -664,7 +664,7 @@ class EventController {
 		def filtersJson 
 		def oper
 		
-		
+
 		//log.debug "PROFESIONAL ASIGNADO ID: "+user?.profesionalAsignado?.id
 		//def list = new GUtilDomainClass(Event,params,grailsApplication).listrefactor()
 		def criteria = Event.createCriteria()
@@ -716,7 +716,11 @@ class EventController {
 		
 		def list = criteria.list(closure)
 
-		
+        if(!isNormal()){
+            render view: 'atenciondeldiam',model: [turnos:list]
+            return;
+        }
+
 		//log.debug "TOTAL DE LIST: "+list.size()
 		def totalregistros=criteriaCount.get(closureCount)
 		def totalpaginas=new Float(totalregistros/Integer.parseInt(params.rows))

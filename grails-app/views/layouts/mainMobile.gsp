@@ -46,7 +46,7 @@
 
    </head>
 <body>
-<div data-role="page" id="demo-page" data-url="demo-page">
+<div data-role="page" id="demo-page" data-url="demo-page" >
     <div data-role="header" data-theme="b">
         <h1>CIMA</h1>
         <sec:ifLoggedIn>
@@ -61,16 +61,16 @@
         </a>
         </sec:ifLoggedIn>
     </div><!-- header -->
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content" >
           <g:layoutBody/>
     </div><!-- /content -->
     <sec:ifLoggedIn>
     <div data-role="panel" id="left-panel" data-theme="b">
         <p>Panel izquierdo</p>
         <ul data-role="listview">
-          <li><a href="${createLink(controller:'profesionales',action:'list')}">Ver pacientes en espera Hoy</a></li>
+          <li><a href="${createLink(controller:'event',action:'atenciondeldia')}">Ver pacientes en espera Hoy</a></li>
           <li><a>Ver turnos en otra fecha</a></li>
-          <li><a href="${createLink(controller:'logout',action:'index')}">Salir</a></li>
+          <li><a href="${createLink(controller:'logout',action:'index')}" data-ajax="false">Cerrar Sesión</a></li>
 
         </ul>
     </div><!-- /panel left-->

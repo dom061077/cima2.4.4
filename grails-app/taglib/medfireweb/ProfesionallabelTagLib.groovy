@@ -1,6 +1,7 @@
 package medfireweb
 
-import com.medfire.User;
+import com.medfire.User
+import com.medfire.security.Person;
 
 
 class ProfesionallabelTagLib {
@@ -8,7 +9,7 @@ class ProfesionallabelTagLib {
 	
 	def antecedenteLabel = { attrs ->
 		def fieldLabel = attrs.field
-		def userInstance = User.get(springSecurityService.getCurrentUser().id)
+		def userInstance = Person.load(springSecurityService.getCurrentUser().id)//User.get(springSecurityService.getCurrentUser().id)
 		def value = userInstance?.profesionalAsignado?.antecedenteLabel?."${fieldLabel}"
 		if(value){
 			if(attrs.url)

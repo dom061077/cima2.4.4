@@ -2,7 +2,8 @@ package com.medfire
 
 import org.springframework.transaction.TransactionStatus
 import com.medfire.util.GUtilDomainClass
- 
+import com.medfire.security.Person
+
 class AntecedenteLabelController {
 	def authenticateService
 	
@@ -28,7 +29,7 @@ class AntecedenteLabelController {
 		log.info "INGRESANDO AL CLOSURE save"
 		
         def antecedenteLabelInstance = new AntecedenteLabel(params)
-		def profesionalInstance = User.load(authenticateService.userDomain().id).profesionalAsignado
+		def profesionalInstance = Person.load(springSecurityService.getCurrentUser().id)//User.load(authenticateService.userDomain().id).profesionalAsignado
 		profesionalInstance.antecedenteLabel=antecedenteLabelInstance
 		log.debug "PROFESIONAL: ASIGNADO "+profesionalInstance
 		log.debug "PROFESIONAL ASIGNADO DESDE EL USUARIO: "+antecedenteLabelInstance.profesional
@@ -119,7 +120,7 @@ class AntecedenteLabelController {
 	def redirect = {
 		log.info "INGRESANDO AL CLOSURE redirect"
 		log.info "PARAMETROS: $params"
-		def userInstance = User.load(authenticateService.userDomain().id)  
+		def userInstance = Person.load(springSecurityService.getCurrentUser().id)//User.load(authenticateService.userDomain().id)
 		//def profesionalInstance = Profesional.load(authenticateService.userDomain().profesionalAsignado?.id)
 		if(!userInstance.profesionalAsignado){
 			flash.message="No tiene un profesional asignado a su usuario"
@@ -139,7 +140,7 @@ class AntecedenteLabelController {
 	def createprof = {
 		log.info "INGRESANDO AL CLOSURE createprof"
 		log.info "PARAMETROS: $params"
-		def userInstance = User.load(authenticateService.userDomain().id)
+		def userInstance = Person.load(springSecurityService.getCurrentUser().id)//User.load(authenticateService.userDomain().id)
 		if(!userInstance.profesionalAsignado){
 			flash.message="Su usuario no tiene un profesional asignado"
 			render(view: "/home/index")
