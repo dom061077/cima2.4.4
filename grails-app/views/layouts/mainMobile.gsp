@@ -48,11 +48,11 @@
 <body>
 <div data-role="page" id="demo-page" data-url="demo-page" >
     <div data-role="header" data-theme="b">
-        <h1>CIMA</h1>
+        <h1>${pageTitle}</h1>
         <sec:ifLoggedIn>
         <a href="#left-panel" data-icon="carat-r" data-iconpos="notext"
            data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">
-            Panel Izquierdo
+            Opciones de Paciente
 
         </a>
         <a href="#right-panel" data-icon="carat-l" data-iconpos="notext"
@@ -66,10 +66,10 @@
     </div><!-- /content -->
     <sec:ifLoggedIn>
     <div data-role="panel" id="left-panel" data-theme="b">
-        <p>Panel izquierdo</p>
+        <p>Opciones de Paciente</p>
         <ul data-role="listview">
-          <li><a href="${createLink(controller:'event',action:'atenciondeldia')}">Ver pacientes en espera Hoy</a></li>
-          <li><a>Ver turnos en otra fecha</a></li>
+          <li><a href="${createLink(controller:'event',action:'atenciondeldia') }" data-ajax="false">Turnos</a></li>
+          <li><a href="${createLink(controller:'historiaClinica', action:'list')}" data-ajax="false">Historias Clínicas</a></li>
           <li><a href="${createLink(controller:'logout',action:'index')}" data-ajax="false">Cerrar Sesión</a></li>
 
         </ul>

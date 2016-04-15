@@ -132,7 +132,7 @@
             <label for="passwd"><g:message code="user.passwd.label" default="Passwd" /></label>
         </div>
         <div class="span-4">
-            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="passwd" value="${personInstance?.password}" />
+            <g:passwordField class="ui-widget ui-corner-all ui-widget-content" name="password" value="${personInstance?.password}" />
         </div>
         <g:hasErrors bean="${personInstance}" field="passwd">
 

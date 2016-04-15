@@ -717,7 +717,7 @@ class EventController {
 		def list = criteria.list(closure)
 
         if(!isNormal()){
-            render view: 'atenciondeldiam',model: [turnos:list]
+            render view: 'atenciondeldiam',model: [turnos:list,pageTitle:'Turnos: '+g.formatDate(date: dateStart,format: "dd/MM/yyyy")]
             return;
         }
 

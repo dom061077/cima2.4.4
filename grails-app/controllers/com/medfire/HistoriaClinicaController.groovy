@@ -11,12 +11,14 @@ import com.medfire.util.GUtilDomainClass
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import grails.converters.JSON
 
 class HistoriaClinicaController {
 
 	def imageUploadService
 	def historiaClinicaService
 	def springSecurityService
+
 	def sessionFactory 
 	
 	static allowedMethods = [save:"POST",update: "POST", delete: "POST"]
@@ -26,10 +28,16 @@ class HistoriaClinicaController {
 	}
   
 	def list = {
-		log.info "INGRESANDO AL CLOSURE iist DEL CONTROLLER HistoriaClinicaController"
+		log.info "INGRESANDO AL CLOSURE iist DEL CONTROLLER HistoriaClinicaController. Parametros: $params"
 		log.info "SOLO RENDERIZA LA PAGINA DE LIST"
 		//params.max = Math.min(params.max ? params.int('max') : 10, 100)
 	   // [historiaClinicaInstanceList: HistoriaClinica.list(params), historiaClinicaInstanceTotal: HistoriaClinica.count()]
+
+        if(!isNormal()){
+            render(view: 'listm',model: [pageTitle:'Historias Clínicas'])
+            return
+        }
+        
 		
 	}
 
@@ -740,6 +748,31 @@ class HistoriaClinicaController {
 		}
 	}
 
-		
+    def listjsonm(){
+        log.info("Metodo listjsonm, params: $params")
+
+        def errorList = []
+        def pacientesList = []
+        def objJson = [:]
+
+
+        def pacientes = null
+
+        if(params.search){
+            pacientes = Paciente.createCriteria().list(){
+                ilike("apellido","%"+params.search+"%")
+            }
+            objJson.count = pacientes.size()
+            objJson.success = true
+            pacientes.each{
+                pacientesList << [id:it.id,apellido:it.apellido,nombre: it.nombre,dni:it.dni,obrasocial:it.obraSocial?.razonSocial]
+            }
+            objJson.rows = pacientesList
+
+        }
+
+        render objJson as JSON
+    }
+
 	
 }
