@@ -55,10 +55,11 @@
             Opciones de Paciente
 
         </a>
-        <a href="#right-panel" data-icon="carat-l" data-iconpos="notext"
+        <!--a href="#right-panel" data-icon="carat-l" data-iconpos="notext"
            data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">
             Panel Derecho
-        </a>
+        </a-->
+
         </sec:ifLoggedIn>
     </div><!-- header -->
     <div role="main" class="ui-content" >
