@@ -40,8 +40,9 @@
             <label for="search">Filtrar por Nombre de Paciente:</label>
             <input type="search" data-filter-placeholder="Stadtname" name="search" id="search-basic" value="" />
         </div>
-        <input id="submitid" type="submit"  value="Filtrar"/>
     </form>
+    <input id="submitid" type="submit"  value="Filtrar"/>
+
     <div id = "idajax">
         <table id="tblpacientes" data-role="table" data-mode="reflow"  class="ui-responsive ui-shadow">
             <thead>
@@ -80,9 +81,7 @@
                                         "<td>" + paciente.dni+ "</td>"+
                                         "<td>" + paciente.obrasocial + "</td>"
                                         +"</tr>")
-                                        .closest( "table#tblpacientes" )
                                         .table("refresh");
-                                        //.trigger("create");
                             }
                          );
                          $('#opcionesPopup').trigger('create');
@@ -92,7 +91,10 @@
      };
     $(document).ready(function(){
         //$( document ).one( "click", "#submitid", loadPacientes());
-        $("#submitid").click(loadPacientes());
+        $("#submitid").click(
+                function(){
+                    loadPacientes();
+                });
      });
 
 </script>
