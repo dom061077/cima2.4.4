@@ -44,7 +44,7 @@
     <input id="submitid" type="submit"  value="Filtrar"/>
 
     <div id = "idajax">
-        <table id="tblpacientes" data-role="table" data-mode="reflow"  class="ui-responsive ui-shadow">
+        <table id="tblpacientes" data-role="table" data-mode="columntoggle"  class="ui-responsive ui-shadow">
             <thead>
             <tr>
                 <th>Id</th>
@@ -81,10 +81,12 @@
                                         "<td>" + paciente.dni+ "</td>"+
                                         "<td>" + paciente.obrasocial + "</td>"
                                         +"</tr>")
+                                        .parents("table")
                                         .table("refresh");
-                            }
+
+                                 }
                          );
-                         $('#opcionesPopup').trigger('create');
+
                      }
              }
          );
