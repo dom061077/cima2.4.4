@@ -24,6 +24,13 @@
     </g:each>
 </ul>
 
+<script type="text/javascript">
+    function loadTurnos(){
+        $.getJSON(atencionDelDiaUrl,
+                {})
+    }
+
+</script>
 
 </body>
 

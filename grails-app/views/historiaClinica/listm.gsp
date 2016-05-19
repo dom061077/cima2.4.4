@@ -70,9 +70,10 @@
          $.getJSON(histclinicaurl
              ,{search:$('#search-basic').val()}
              ,function(data){
-                     var tbl = $("#tblpacientes tbody");
-
+                     var tbl = $("#tblpacientes > tbody");
+                     tbl.html("");
                      if(data.success){
+
                          $.each(data.rows,function(id,paciente){
 
                                 tbl.append("<tr><td>" + paciente.id+ "</td>"
