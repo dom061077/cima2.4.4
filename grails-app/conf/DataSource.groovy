@@ -20,7 +20,7 @@ environments {
 			password = "exito"
 		
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/medfireweb"
+            url = "jdbc:mysql://localhost/mefireweb"
         }
     }
     test {
