@@ -205,7 +205,15 @@ grails.plugin.springsecurity.authority.className = 'com.medfire.security.Authori
 grails.plugin.springsecurity.requestMap.className = 'com.medfire.security.Requestmapa'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 
-
+cors.enabled=true
+cors.url.pattern = '/api/*'
+cors.headers=[
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'origin, authorization, accept, content-type, x-requested-with',
+    'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS',
+    'Access-Control-Max-Age': 3600
+    ]
 
 /*
 * grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.rural.ganaderia.seguridad.User'

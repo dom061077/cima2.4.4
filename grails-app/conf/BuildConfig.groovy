@@ -60,6 +60,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
+        
         build ":tomcat:7.0.55"
 
         // plugins for the compile step
@@ -75,10 +76,13 @@ grails.project.dependency.resolution = {
         compile ":burning-image:0.5.2"
         compile ":audit-logging:1.0.3"
         compile ":jasper:1.11.0"
-        compile ':spring-security-core:2.0-RC4'
+        compile ':spring-security-core:2.0-RC5'
+        compile ":cors:1.1.8"
         compile ":spring-security-ui:1.0-RC2"
         compile ":spring-mobile:0.5.1"
-
+        //compile ':spring-security-rest:1.5.3'
+        
+        
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
         //compile ":less-asset-pipeline:1.10.0"
