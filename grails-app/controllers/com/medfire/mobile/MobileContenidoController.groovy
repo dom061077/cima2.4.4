@@ -2,6 +2,7 @@ package com.medfire.mobile
 
 import grails.converters.JSON
 import com.medfire.MobileContenido
+import com.medfire.MobileProcedimiento
 
 class MobileContenidoController {
 
@@ -13,5 +14,16 @@ class MobileContenidoController {
             contenido.quienessomos = it.quienesSomos
         }
         render contenido as JSON
+    }
+    
+    def procedimientos(){
+        def procedimientos=[]
+        //procedimientos.add(url:)
+        def list = MobileProcedimiento.list()
+        list.each{
+            procedimientos.add(descripcion:it.descripcion
+                ,titulo:it.titulo,urlVideo:it.urlVideo)
+        }
+        render procedimientos as JSON
     }
 }
