@@ -74,10 +74,10 @@ event.COLOR_ENSALA="#C29C05"
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
-        grails.serverURL = "http://www.changeme.com"
+        //grails.serverURL = "200.58.126.188:8080"
     }
     development {
-        grails.serverURL = "http://134.14.1.3:8080/${appName}"
+        grails.serverURL = "http://localhost:8080/${appName}"
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
