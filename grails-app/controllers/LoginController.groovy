@@ -40,25 +40,8 @@ class LoginController {
      * Show the login page.
      */
     def auth = {
-        /*
-
-        String view = 'auth'
-
-        if (!isNormal()){
-            log.debug "ES UN DISPOSITIVO MOVIL"
-            view = 'authm'
-        }
-
-        String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-        render view: view, model: [postUrl: postUrl,
-                rememberMeParameter: config.rememberMe.parameter]
-        */
+        
         def config = SpringSecurityUtils.securityConfig
-
-        if (springSecurityService.isLoggedIn()) {
-            redirect uri: config.successHandler.defaultTargetUrl
-            return
-        }
         String view = 'auth'
 
         if (!isNormal()){
@@ -69,6 +52,24 @@ class LoginController {
         String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
         render view: view, model: [postUrl: postUrl,
                 rememberMeParameter: config.rememberMe.parameter]
+
+        
+//        def config = SpringSecurityUtils.securityConfig
+//
+//        if (springSecurityService.isLoggedIn()) {
+//            redirect uri: config.successHandler.defaultTargetUrl
+//            return
+//        }
+//        String view = 'auth'
+//
+//        if (!isNormal()){
+//            log.debug "ES UN DISPOSITIVO MOVIL"
+//            view = 'authm'
+//        }
+//
+//        String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+//        render view: view, model: [postUrl: postUrl,
+//                rememberMeParameter: config.rememberMe.parameter]
 
     }
 
