@@ -21,7 +21,7 @@ class MobileContenidoController {
         //procedimientos.add(url:)
         def list = MobileProcedimiento.list()
         list.each{
-            procedimientos.add(descripcion:it.descripcion
+            procedimientos.add(id:it.id,descripcion:it.descripcion
                 ,titulo:it.titulo,urlVideo:it.urlVideo)
         }
         render procedimientos as JSON
