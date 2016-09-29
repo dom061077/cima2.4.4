@@ -30,7 +30,7 @@ environments {
 			username = "root"
 			password = "exito"
             dbCreate = "create-drop"
-            url = "jdbc:mysql://localhost/medfireweb"
+            url = "jdbc:mysql://localhost/mefireweb"
         }
     }
     production {
@@ -40,8 +40,8 @@ environments {
 			username = "root"//username = "inapcom_root"
 			password = "exito"//password = "DomPomoSkiby2011"
             //dbCreate = "update"
-            //url = "jdbc:mysql://localhost/mefireweb"
-            url = "jdbc:mysql://localhost/inapcom_medfireweb"
+            url = "jdbc:mysql://localhost/mefireweb"
+            //url = "jdbc:mysql://localhost/inapcom_medfireweb"
 			properties {
 				maxActive = 50
 				maxIdle = 25

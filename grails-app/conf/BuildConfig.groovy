@@ -80,7 +80,7 @@ grails.project.dependency.resolution = {
         compile ":cors:1.1.8"
         compile ":spring-security-ui:1.0-RC2"
         compile ":spring-mobile:0.5.1"
-        //compile ':spring-security-rest:1.5.3'
+        //compile ':spring-security-rest:1.5.4'
         
         
         // Uncomment these to enable additional asset-pipeline capabilities
