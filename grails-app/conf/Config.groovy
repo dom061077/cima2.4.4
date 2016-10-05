@@ -199,6 +199,8 @@ grails.plugin.springsecurity.active = true
 //    println "\nERROR auth failed for user $e.authentication.name: $e.exception.message\n"
 //}
 
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home/index'
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.medfire.security.Person'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.medfire.security.PersonAuthority'
 grails.plugin.springsecurity.authority.className = 'com.medfire.security.Authority'

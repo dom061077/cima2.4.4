@@ -7,7 +7,7 @@ class UrlMappings {
 			}
 		}
 
-		"/"(controller: "/home/index")
+		"/"(view:"/index")
 		"500"(view:'/error')
 		//"404"(view:'dddddddddd/index')
 

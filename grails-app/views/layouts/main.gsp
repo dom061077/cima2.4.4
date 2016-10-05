@@ -251,7 +251,7 @@
 							</ul>
 						</li>
 						<sec:ifAnyGranted roles="ROLE_PROFESIONAL,ROLE_ADMIN">
-							<li><a href="#" class="dir">Edición</a>
+							<li><a href="#" class="dir">EdiciÃ³n</a>
 								<ul>
 									<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
 										<li><a href="${response.encodeURL(createLink(controller:'antecedenteLabel',action:'redirect')+g.antecedenteLabel(field:'id',url:true))}">Etiquetas de Ficha Clínica</a></li>	
@@ -282,7 +282,7 @@
 									<li><a href="${createLink(controller:'vademecum',action:'list')}">Vademecum</a></li>
 								</sec:ifAnyGranted>
 								<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
-									<li><a href="${createLink(controller:'historiaClinica',action:'list')}">Historia Cínica</a> </li>
+									<li><a href="${createLink(controller:'historiaClinica',action:'list')}">Historia ClÃ­nica</a> </li>
 								</sec:ifAnyGranted>
 							</ul>
 						</li>
