@@ -263,5 +263,39 @@ class PersonController {
         }
     }
 
+    
+    
+    class UserPasswordCommand {
+            def authenticateService
+            String id
+            String oldPassword
+            String newPassword
+            String passwordRepeat
+
+            String getOldPasswordEncrypted(){
+                    return authenticateService.encodePassword(oldPassword)
+            }
+
+            String getLoggedPassword(){
+                    return authenticateService.userDomain().passwd
+            }
+
+            static constraints={
+                    oldPassword(blank:false,validator: { passwd2, cmd ->
+                                            if(!cmd.oldPasswordEncrypted.equals(cmd.loggedPassword))	
+                            return "oldPasswordEncrypted: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
+                                            if(passwd2==cmd.newPassword)
+                                                    return "equals.oldpassword"
+
+                    })
+                    newPassword(blank:false)
+                    passwordRepeat(blank:false,validator:{ current, cmd ->
+                                    if(!current.equals(cmd.newPassword))
+                                            return "notequals"
+                    })
+            }
+    }
+
+
 
 }
