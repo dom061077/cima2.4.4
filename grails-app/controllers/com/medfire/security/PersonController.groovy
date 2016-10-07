@@ -11,7 +11,7 @@ class PersonController {
 
     static allowedMethods = [save: "POST"/*, update: "PUT"*/, delete: "DELETE"]
 
-    def index(Integer max) {
+    def list(Integer max) {
         log.info "Index method"
         params.max = Math.min(max ?: 10, 100)
         respond Person.list(params), model:[personInstanceCount: Person.count()]
@@ -263,27 +263,51 @@ class PersonController {
         }
     }
 
+	def changepassword = {
+		log.info "INGRESNDO AL CLOSURE changepassword"
+		log.info "PARAMETROS: $params"
+		def userCommand = new UserPasswordCommand()
+		return [userInstance:userCommand]
+	}	
+	
+	def change = {UserPasswordCommand cmd ->
+		log.info "INGRESANDO AL CLOSURE change"
+		log.info "PARAMETROS $params"
+		
+		if(cmd.validate()){
+			def personInstance = Person.get(springSecurityService.getCurrentUser().id)
+			personInstance.passwd = authenticateService.encodePassword(cmd.newPassword)
+			personInstance.save()
+			flash.message=g.message(code:"user.sucesschanged.flash.message")
+			render(view:"/index")
+		}else{
+			log.debug "ERRORES DE VALIDACION: "+cmd.errors.allErrors
+			render(view: "changepassword", model: [userInstance:cmd])
+		}
+	}
     
-    
+}
+
     class UserPasswordCommand {
-            def authenticateService
-            String id
+            def springSecurityService
+            //String id
             String oldPassword
             String newPassword
             String passwordRepeat
 
             String getOldPasswordEncrypted(){
-                    return authenticateService.encodePassword(oldPassword)
+                //springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+                    return springSecurityService.encodePassword(oldPassword)
             }
 
             String getLoggedPassword(){
-                    return authenticateService.userDomain().passwd
+                    return springSecurityService.getCurrentUser().password
             }
 
             static constraints={
                     oldPassword(blank:false,validator: { passwd2, cmd ->
                                             if(!cmd.oldPasswordEncrypted.equals(cmd.loggedPassword))	
-                            return "oldPasswordEncrypted: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
+                            return "Contraseña anterior inválida: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
                                             if(passwd2==cmd.newPassword)
                                                     return "equals.oldpassword"
 
@@ -295,7 +319,3 @@ class PersonController {
                     })
             }
     }
-
-
-
-}
