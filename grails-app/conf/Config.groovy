@@ -206,6 +206,8 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.medfire.se
 grails.plugin.springsecurity.authority.className = 'com.medfire.security.Authority'
 grails.plugin.springsecurity.requestMap.className = 'com.medfire.security.Requestmapa'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.password.algorithm = 'SHA1'
+grails.plugin.springsecurity.password.hash.iterations = 1
 
 //cors.enabled=true
 //cors.url.pattern = '/api/*'
