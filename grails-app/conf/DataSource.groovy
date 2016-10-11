@@ -20,21 +20,7 @@ environments {
 			password = "exito"
 		
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            logSql = true
             url = "jdbc:mysql://localhost/mefireweb"
-			properties {
-				maxActive = 50
-				maxIdle = 25
-				minIdle = 5
-				initialSize = 5
-				minEvictableIdleTimeMillis = 60000
-				timeBetweenEvictionRunsMillis = 60000
-				maxWait = 10000
-				validationQuery = "SELECT 1"
-                                testOnBorrow = true
-                                testWhileIdle = true
-                                testOnReturn = true                                
-			}
             
         }
     }

@@ -306,8 +306,9 @@ class PersonController {
 
             static constraints={
                     oldPassword(blank:false,validator: { passwd2, cmd ->
-                                            if(!cmd.oldPasswordEncrypted.equals(cmd.loggedPassword))	
-                            return "Contraseña anterior inválida: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
+                                            //if(!cmd.oldPasswordEncrypted.equals(cmd.loggedPassword))	
+                                            if(!springSecurityService.isPasswordValid(cmd.oldPasswordEncrypted))
+                                                return "Contraseña anterior inválida: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
                                             if(passwd2==cmd.newPassword)
                                                     return "equals.oldpassword"
 
