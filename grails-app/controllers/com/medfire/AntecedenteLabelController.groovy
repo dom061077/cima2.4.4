@@ -5,7 +5,7 @@ import com.medfire.util.GUtilDomainClass
 import com.medfire.security.Person
 
 class AntecedenteLabelController {
-	def authenticateService
+	def springSecurityService 
 	
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 

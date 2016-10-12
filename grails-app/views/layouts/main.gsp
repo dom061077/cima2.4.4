@@ -210,10 +210,10 @@
 							</a>	
 						</div>
 						<div class="span-5">
-							<!--g:institucioninfo/-->
+							<g:institucioninfo/>
 						</div>
 						<div class="span-2 prepend-6">	
-							<!--g:institucionimg/-->
+							<g:institucionimg/>
 						</div>
 					</sec:ifLoggedIn>
 					<sec:ifNotLoggedIn>
@@ -242,7 +242,7 @@
 						<li><a href="#" class="dir">Archivo</a>
 							<ul>
 								<sec:ifAnyGranted roles="ROLE_ADMIN">
-									<li><a href="${createLink(controller:'person')}">Usuarios</a></li>
+									<li><a href="${createLink(controller:'person',action:'list')}">Usuarios</a></li>
 									<li><a href="${createLink(controller:'role')}">Roles</a></li>
 									<li><a href="${createLink(controller:'requestmap')}">Requestmap</a></li>
 								</sec:ifAnyGranted>

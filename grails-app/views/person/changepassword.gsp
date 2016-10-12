@@ -12,7 +12,7 @@
         </script>
 	</head>
 <body>
-	<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+	<h1><g:message code="user.changepassd.label" args="[entityName]" /></h1>
 	<div class="span-16 prepend-2">
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>

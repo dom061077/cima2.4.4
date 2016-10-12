@@ -8,9 +8,15 @@ import com.medfire.util.GUtilDomainClass
 
 @Transactional(readOnly = true)
 class PersonController {
+    def springSecurityService
 
     static allowedMethods = [save: "POST"/*, update: "PUT"*/, delete: "DELETE"]
 
+//    def index(){
+//        list()
+//    }
+    
+    
     def list(Integer max) {
         log.info "Index method"
         params.max = Math.min(max ?: 10, 100)
@@ -151,7 +157,7 @@ class PersonController {
                 result=result+','
 
 
-            result=result+'{"id":"'+it.id+'","cell":["'+it.id+'","'+(it.username==null?"":it.username)+'","'+it.institucion?.nombre+'","'+(it.userRealName==null?"":it.userRealName)+'","'+(it.enabled==null?"":(it.enabled==true?'SI':'NO'))+'","'+(it.esProfesional==null?"":it.esProfesional)/*+'","'+(it.email==null?"":it.email)*/+'","'+(it.profesionalAsignado?.nombre==null?"":it.profesionalAsignado?.nombre)+'"]}'
+            result=result+'{"id":"'+it.id+'","cell":["'+it.id+'","'+(it.username==null?"":it.username)+'","'+it.institucion?.nombre+'","'+(it.userRealName==null?"":it.userRealName)+'","'+(it.enabled==null?"":(it.enabled==true?'SI':'NO'))+'","'+(it.esProfesional==null?"":it.esProfesional)+'","'+(it.email==null?"":it.email)+'","'+(it.profesionalAsignado?.nombre==null?"":it.profesionalAsignado?.nombre)+'"]}'
 
             flagaddcomilla=true
         }
@@ -276,7 +282,7 @@ class PersonController {
 		
 		if(cmd.validate()){
 			def personInstance = Person.get(springSecurityService.getCurrentUser().id)
-			personInstance.passwd = authenticateService.encodePassword(cmd.newPassword)
+			personInstance.password = cmd.newPassword
 			personInstance.save()
 			flash.message=g.message(code:"user.sucesschanged.flash.message")
 			render(view:"/index")
@@ -295,6 +301,11 @@ class PersonController {
             String newPassword
             String passwordRepeat
 
+//            def getSpringSecurityService(){
+//                return springSecurityService
+//            }
+            
+        
             String getOldPasswordEncrypted(){
                 //springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
                     return springSecurityService.encodePassword(oldPassword)
@@ -307,8 +318,8 @@ class PersonController {
             static constraints={
                     oldPassword(blank:false,validator: { passwd2, cmd ->
                                             //if(!cmd.oldPasswordEncrypted.equals(cmd.loggedPassword))	
-                                            if(!springSecurityService.isPasswordValid(cmd.oldPasswordEncrypted))
-                                                return "Contraseña anterior inválida: "+cmd.oldPasswordEncrypted+" password: "+cmd.loggedPassword
+                                            if(!cmd.springSecurityService.passwordEncoder.isPasswordValid(cmd.loggedPassword,cmd.oldPassword,null))
+                                                return "Contraseña anterior inválida: "+cmd.oldPassword+" password: "+cmd.loggedPassword
                                             if(passwd2==cmd.newPassword)
                                                     return "equals.oldpassword"
 
