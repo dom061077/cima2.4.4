@@ -214,7 +214,7 @@
 				</fieldset>                    		
             </div>
 			<div class="clear"></div>                            
-            <g:ifAnyGranted role="ROLE_ADMIN">
+            <sec:ifAnyGranted roles="ROLE_ADMIN">
             <div class="span-10 prepend-2">
                 <g:form>
                     <g:hiddenField name="id" value="${antecedenteLabelInstance?.id}" />
@@ -222,7 +222,7 @@
                     <span class="button"><g:actionSubmit class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
-            </g:ifAnyGranted>
+            </sec:ifAnyGranted>
         </div>
     </body>
 </html>

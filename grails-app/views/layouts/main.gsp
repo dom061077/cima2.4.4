@@ -251,7 +251,7 @@
 							</ul>
 						</li>
 						<sec:ifAnyGranted roles="ROLE_PROFESIONAL,ROLE_ADMIN">
-							<li><a href="#" class="dir">EdiciÃ³n</a>
+							<li><a href="#" class="dir">Edici&oacute;n</a>
 								<ul>
 									<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
 										<li><a href="${response.encodeURL(createLink(controller:'antecedenteLabel',action:'redirect')+g.antecedenteLabel(field:'id',url:true))}">Etiquetas de Ficha Clínica</a></li>	
