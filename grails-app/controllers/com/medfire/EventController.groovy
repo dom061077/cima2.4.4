@@ -483,6 +483,8 @@ class EventController {
 			
 			if (!eventInstance.estado.equals(EstadoEvent.EVENT_PENDIENTE && !eventInstance.estado.equals(EstadoEvent.EVENT_ENSALA)) 
 					|| eventInstance.fechaStart.compareTo(currentCal.getTime())<0){
+                                log.debug("FECHA START:"+eventInstance.fechaStart)
+                                log.debug("CURRENT CAL getTime: "+currentCal.getTime()+" CURRENT CAL: "+currentCal)
 				render(contentType:"text/json"){
 					result success:false,title:"Error, para mover un turno el mismo debe estar pendiente y que no sean anteriores al día de hoy"
 				}
