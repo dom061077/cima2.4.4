@@ -107,7 +107,8 @@
 		  							<label for="consulta.fechaConsulta">Fecha de Consulta:</label>
 		  					</div>
 		  					<div class="span-3  append-1">		
-		  							<g:textField class="ui-widget ui-corner-all ui-widget-content" id="fechaConsultaId" name="consulta.fechaConsulta" value="${g.formatDate(format:'dd/MM/yyyy',date:consultaInstance?.fechaConsulta)}"/>
+		  							<g:textField class="ui-widget ui-corner-all ui-widget-content" id="fechaConsultaId" name="consulta.fechaConsultaAux" value="${g.formatDate(format:'dd/MM/yyyy',date:consultaInstance?.fechaConsulta)}"/>
+                                                                        <!--g:datePicker name="consulta.fechaConsulta" value="${consultaInstance?.fechaConsulta}" noSelection="['':'-Choose-']"/-->                                                                        
    							</div>
    							
    							<div class="span-1 spanlabel">
@@ -307,7 +308,7 @@
                                     	</g:hasErrors>
                  			</div>
                  		</fieldset>
-                 		</div><!-- div del span en la pestaña  -->
+                 		</div><!-- div del span en la pestaï¿½a  -->
             		</div>  
             		<div id="tabs-3">
             			<div class="span-3 append-bottom"><a id="agregarEstudioId" onClick="return false" href="">Agregar Estudio</a></div>

@@ -33,10 +33,10 @@ class HistoriaClinicaController {
 		//params.max = Math.min(params.max ? params.int('max') : 10, 100)
 	   // [historiaClinicaInstanceList: HistoriaClinica.list(params), historiaClinicaInstanceTotal: HistoriaClinica.count()]
 
-        if(!isNormal()){
-            render(view: 'listm',model: [pageTitle:'Historias Clínicas'])
-            return
-        }
+//        if(!isNormal()){
+//            render(view: 'listm',model: [pageTitle:'Historias Clínicas'])
+//            return
+//        }
         
 		
 	}
@@ -102,13 +102,16 @@ class HistoriaClinicaController {
 		if(params.prescripciones)
 			prescripcionesjson = grails.converters.JSON.parse(params.prescripciones)
 		def fechaConsultaError = false
-		if (params.consulta.fechaConsulta){
-			if(params.consulta.fechaConsulta.length()<10){
+		if (params.consulta.fechaConsultaAux){
+			if(params.consulta.fechaConsultaAux.length()<10){
 				fechaConsultaError = true
 			}else{
-				params.consulta.fechaConsulta_year=params.consulta.fechaConsulta.substring(6,10)
-				params.consulta.fechaConsulta_month=params.consulta.fechaConsulta.substring(3,5)
-				params.consulta.fechaConsulta_day=params.consulta.fechaConsulta.substring(0,2)
+				params.consulta.fechaConsulta_year=params.consulta.fechaConsultaAux.substring(6,10)
+				params.consulta.fechaConsulta_month=params.consulta.fechaConsultaAux.substring(3,5)
+				params.consulta.fechaConsulta_day=params.consulta.fechaConsultaAux.substring(0,2)
+                                log.debug "params.consulta.fechaConsulta_year: "+params.consulta.fechaConsulta_year
+                                log.debug "params.consulta.fechaConsulta_month: "+params.consulta.fechaConsulta_month
+                                log.debug "params.consulta.fechaConsulta_day: "+params.consulta.fechaConsulta_day
 				try{
 					if(params.consulta.fechaConsulta_month.toInteger()>12)
 						fechaConsultaError=true
@@ -132,6 +135,8 @@ class HistoriaClinicaController {
 			return 
 		}
 
+                log.debug "FECHA DE CONSULTA: "+params.consulta
+                //params.consulta.fechaConsulta = null
 		def consultaInstance = new Consulta(params.consulta)
 		def pacienteInstance = Paciente.get(params.pacienteId.toLong())
 		def eventInstance
@@ -185,8 +190,17 @@ class HistoriaClinicaController {
 						estudio.addToImagenes(new EstudioComplementarioImagen(imagen:image.value,secuencia:image.key.toInteger()))
 					} 
 				}
-				consultaInstance.addToEstudios(estudio)
-				secuencia++
+                                if( !estudio.pedido 
+                                    && !estudio.resultado
+                                        ){log.debug("No se agregara el estudio");}
+                                else{            
+        				consultaInstance.addToEstudios(estudio)
+                                        log.debug("Se agrego el estudio")
+                                        log.debug("estudio.pedido "+estudio.pedido)
+                                        log.debug("estudio.resultado "+estudio.resultado)
+                                        
+                                }
+    				secuencia++
 			}catch(Exception e){
 				//log.debug "EXCEPCION LANZADA, ESTRUCTURA: "+it.properties
 			}
@@ -306,11 +320,11 @@ class HistoriaClinicaController {
 		log.info "PARAMS: $params"
 		log.debug "ID: ${params.id}"
 		
-		if (params.consulta.fechaConsulta){
+		if (params.consulta.fechaConsultaAux){
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 			def fecha
 			try{
-				fecha = df.parse(params.consulta.fechaConsulta)
+				fecha = df.parse(params.consulta.fechaConsultaAux)
 				log.debug "LA FECHA SE PARSEO BIEN"
 			}catch(ParseException e){
 				log.debug "LA FECHA NO SE PARSEO BIEN"
@@ -367,7 +381,7 @@ class HistoriaClinicaController {
 				render "<input type='text' id='consultasalvadaId'  name='consultasalvada' value='${consultaInstance?.id}' />"
 				//redirect(action: "show", id: consultaInstance.id)
 			}catch(ConsultaException e){
-				log.error "MENSAJE DE ERROR: "+e.message
+				log.error "MENSAJE DE ERROR: "+e.consulta.errors.allErrors
 				render " <div class='ui-state-error ui-corner-all' style='padding: 0pt 0.7em;'>	${g.renderErrors(bean:e.consulta)}<br/> ${g.renderErrors(bean:e?.consulta?.paciente)} <br/> ${g.renderErrors(bean:e?.estudioComplementario)}<br/> ${g.renderErrors(bean:e?.estudioComplementarioImagen)} </div>	"
 			}
 		}

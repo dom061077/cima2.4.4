@@ -48,6 +48,22 @@ class Consulta {
 		}
 		evento(nullable:true)
 
+                pulso(nullable:true,blank:true)
+                fc(nullable:true,blank:true)
+                ta(nullable:true,blank:true)
+                fr(nullable:true,blank:true)
+                taxilar(nullable:true,blank:true)
+                trectal(nullable:true,blank:true)
+                pesoh(nullable:true,blank:true)
+                pesoa(nullable:true,blank:true)
+                impresion(nullable:true,blank:true)
+                habito(nullable:true,blank:true)
+                actitud(nullable:true,blank:true)
+                ubicacion(nullable:true,blank:true)
+                marcha(nullable:true,blank:true)
+                psiqui(nullable:true,blank:true)
+                facie(nullable:true,blank:true)
+        
     }
 	
 	static mapping = {

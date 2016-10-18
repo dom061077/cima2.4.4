@@ -5,6 +5,8 @@ package com.medfire.security
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import com.medfire.util.GUtilDomainClass
+import com.medfire.Profesional
+import com.medfire.Institucion
 
 @Transactional(readOnly = true)
 class PersonController {
@@ -207,6 +209,17 @@ class PersonController {
                 cantAuthorities++
             }
         }
+        
+        if(params.profesionalAsignadoId)
+                personInstance.profesionalAsignado = Profesional.load(params.profesionalAsignadoId.toLong())
+        else
+                personInstance.profesionalAsignado=null
+
+        if(params.institucionId)
+                personInstance.institucion = Institucion.load(params.institucionId.toLong())
+        else
+                personInstance.institucion = null		
+        
         if(cantAuthorities>1){
             personInstance.validate()
             personInstance.errors.rejectValue("authorities","user.roles.exluyentes","Solo puede selecionar un Rol")
