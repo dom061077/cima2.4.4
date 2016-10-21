@@ -7,7 +7,11 @@
 		<g:message code="mobileContenido.quienesSomos.label" default="Quienes Somos" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="quienesSomos" required="" value="${mobileContenidoInstance?.quienesSomos}"/>
+	<!--g:textField name="quienesSomos" required="" value="${mobileContenidoInstance?.quienesSomos}"/-->
+        <textArea style="min-height: 500px" name="quienesSomos" class="ckeditor"  id="quienesSomosId">
+                ${mobileContenidoInstance?.quienesSomos}
+        </textArea>
+        
 
 </div>
 

@@ -146,7 +146,7 @@
 			<div  id="exploradorId" style="display:none">
 						<button title='Cambiar Estado Turno' id="menuExploradorEstadoId">Estado</button>
 						<button title='Alta de Consulta' id="menuExploradorNuevaConsultaId">Consulta</button>
-						<button title='Historia Clinica' id="menuExploradorHistId">Hist.</button>
+						<button title='Historia Cl&iacute;nica' id="menuExploradorHistId">Hist.</button>
 						<a href="#" title='Fecha de los turnos' id="menuExploradorHistFechaId"></a>
 						<div id="menuExplorardorHistFechaDatePickerId"></div>
 					<table id="listturnos"></table>
@@ -155,7 +155,7 @@
 			</div>
 			
 	
-			<div style="display:none" id="dialog-form" title="Información del turno">
+			<div style="display:none" id="dialog-form" title="Informaci&oacute;n del turno">
 				<form id="formturnosId">
 					<table>
 						<tr class="prop">
@@ -282,8 +282,11 @@
 									<li><a href="${createLink(controller:'vademecum',action:'list')}">Vademecum</a></li>
 								</sec:ifAnyGranted>
 								<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
-									<li><a href="${createLink(controller:'historiaClinica',action:'list')}">Historia ClÃ­nica</a> </li>
+									<li><a href="${createLink(controller:'historiaClinica',action:'list')}">Historia Cl&iacute;nica</a> </li>
 								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
+									<li><a href="${createLink(controller:'mobileContenido',action:'edit')}">Contenido Móvil</a> </li>
+								</sec:ifAnyGranted>                                                                
 							</ul>
 						</li>
 						<li><a href="#" class="dir">Informes</a>

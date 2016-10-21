@@ -46,7 +46,11 @@ class MobileContenidoController {
         }
     }
 
-    def edit(MobileContenido mobileContenidoInstance) {
+    def edit() {
+        def mobileContenidoInstance
+        MobileContenido.list().each{
+            mobileContenidoInstance = it
+        }
         respond mobileContenidoInstance
     }
 
