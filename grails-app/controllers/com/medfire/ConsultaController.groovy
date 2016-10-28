@@ -46,11 +46,11 @@ class ConsultaController {
 		log.info "INGRESANDO AL CLOSURE save DEL CONTROLLER ConsultaController"
 		log.info "PARAMETROS $params"
 		
-		if (params.fechaConsulta){
+		if (params.consulta.fechaConsultaAux){
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 			def fecha
 			try{
-				fecha = df.parse(params.fechaConsulta)
+				fecha = df.parse(params.consulta.fechaConsultaAux)
 				log.debug "LA FECHA SE PARSEO BIEN"
 			}catch(ParseException e){
 				log.debug "LA FECHA NO SE PARSEO BIEN" 
@@ -58,14 +58,15 @@ class ConsultaController {
 			def gc = Calendar.getInstance()
 			gc.setTime(fecha)
 			log.debug "ANIO: "+gc.get(Calendar.YEAR).toString()+", MES "+gc.get(Calendar.MONTH+1).toString()+" DIA "+gc.get(Calendar.DATE).toString()
-			params.fechaConsulta_year=gc.get(Calendar.YEAR).toString()
-			params.fechaConsulta_month=(gc.get(Calendar.MONTH)+1).toString()
-			params.fechaConsulta_day=gc.get(Calendar.DATE).toString()
+			params.consulta.fechaConsulta_year=gc.get(Calendar.YEAR).toString()
+			params.consulta.fechaConsulta_month=(gc.get(Calendar.MONTH)+1).toString()
+			params.consulta.fechaConsulta_day=gc.get(Calendar.DATE).toString()
 		}
 
 		
-        def consultaInstance = new Consulta(params)
-		consultaInstance.fechaAlta= new java.sql.Date((new Date()).getTime())
+        def consultaInstance = new Consulta(params.consulta)
+        log.debug "consultaInstance.properties: "+consultaInstance.properties
+	consultaInstance.fechaAlta= new java.sql.Date((new Date()).getTime())
         if (consultaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'consulta.label', default: 'Consulta'), consultaInstance.id])}"
             redirect(action: "show", id: consultaInstance.id)
@@ -109,7 +110,7 @@ class ConsultaController {
                     return
                 }
             }
-            consultaInstance.properties = params
+            consultaInstance.properties = params.consulta
             if (!consultaInstance.hasErrors() && consultaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'consulta.label', default: 'Consulta'), consultaInstance.id])}"
                 redirect(action: "show", id: consultaInstance.id)

@@ -140,6 +140,7 @@
    							<div class="span-7 colborder">
 		  							<label for="consulta.fechaConsulta">Fecha de Consulta:</label>
 		  							<g:textField class="ui-widget ui-corner-all ui-widget-content" id="fechaConsultaId" name="consulta.fechaConsultaAux" value="${g.formatDate(format:'dd/MM/yyyy',date:consultaInstance?.fechaConsulta)}"/>
+                                                                        <input type="hidden" name="consulta.fechaConsulta" value="date.struct" />
    							</div>
    							
    							<div class="span-6 colborder">

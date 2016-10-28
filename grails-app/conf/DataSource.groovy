@@ -19,8 +19,8 @@ environments {
 			username = "root"
 			password = "exito"
 		
-            dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/mefireweb"
+            //dbCreate = "update" // one of 'create', 'create-drop','update'
+            url = "jdbc:mysql://localhost/inapcom_medfireweb"//"jdbc:mysql://localhost/mefireweb"
             
         }
     }

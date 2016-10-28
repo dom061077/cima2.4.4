@@ -135,9 +135,12 @@ class HistoriaClinicaController {
 			return 
 		}
 
-                log.debug "FECHA DE CONSULTA: "+params.consulta
+                log.debug "FECHA DE CONSULTA: "+params.consulta.fechaConsulta
                 //params.consulta.fechaConsulta = null
+                log.debug "Fecha en params: "+params.consulta.fechaConsulta_year+"-"+params.consulta.fechaConsulta_month+"-"+params.consulta.fechaConsulta_day
 		def consultaInstance = new Consulta(params.consulta)
+                consultaInstance.properties = params.consulta
+                log.debug "Fecha en consultaInstance: "+consultaInstance.fechaConsulta
 		def pacienteInstance = Paciente.get(params.pacienteId.toLong())
 		def eventInstance
 		def userInstance = Person.load(springSecurityService.getCurrentUser().id)
@@ -150,8 +153,6 @@ class HistoriaClinicaController {
 		def flagantecedente = false
 		 
 		pacienteInstance.antecedentes?.each{
-			//if(it.profesional.equals(profesionalInstance)){
-			
 			if(it.profesional.id==profesionalInstance.id){
 				flagantecedente = true
 				it.properties = params.paciente.antecedente
@@ -235,6 +236,7 @@ class HistoriaClinicaController {
 		}
 
 		try{
+                        log.debug "Fecha consulta: "+consultaInstance.fechaConsulta
 			consultaInstance=historiaClinicaService.registrarVisita(consultaInstance,eventInstance)
 			flash.message = "${message(code: 'historiaclinica.default.created.message')}"
 			//redirect(action: "show", id: consultaInstance.id)

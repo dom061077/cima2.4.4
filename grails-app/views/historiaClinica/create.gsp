@@ -108,6 +108,8 @@
 		  					</div>
 		  					<div class="span-3  append-1">		
 		  							<g:textField class="ui-widget ui-corner-all ui-widget-content" id="fechaConsultaId" name="consulta.fechaConsultaAux" value="${g.formatDate(format:'dd/MM/yyyy',date:consultaInstance?.fechaConsulta)}"/>
+                                                                        <input type="hidden" name="consulta.fechaConsulta" value="date.struct" />
+
                                                                         <!--g:datePicker name="consulta.fechaConsulta" value="${consultaInstance?.fechaConsulta}" noSelection="['':'-Choose-']"/-->                                                                        
    							</div>
    							

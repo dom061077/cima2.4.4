@@ -15,7 +15,7 @@ import com.medfire.Profesional
 class BootStrap {
 	def authenticateService
     def init = { servletContext ->
-		createAdminIfRequired()
+		//createAdminIfRequired()
 		//DataSourceUtils.tune(servletContext)
     }
     def destroy = {

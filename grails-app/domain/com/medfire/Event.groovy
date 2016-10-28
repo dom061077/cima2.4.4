@@ -31,7 +31,7 @@ class Event {
 		paciente(nullable:true,blank:true)
 		profesional(nullable:false,blank:false)
 		user(nullable:true,blank:true)
-        person(nullable: false, blank:false)
+        person(nullable: true, blank:true)
 		consulta(nullable:true)
 		tiempoAtencion(nullable:true,blank:true)
 		titulo(blank:false)

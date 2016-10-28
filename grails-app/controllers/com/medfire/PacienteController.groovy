@@ -76,7 +76,7 @@ class PacienteController {
 		
 		if(fechaNacimientoError){
 			pacienteInstance.validate()
-			pacienteInstance.errors.rejectValue("fechaNacimiento","com.medfire.Profesional.fechaNacimiento.date.error","Ingrese una fecha correcta, se sugiere una correci�n")
+			pacienteInstance.errors.rejectValue("fechaNacimiento","com.medfire.Profesional.fechaNacimiento.date.error","Ingrese una fecha correcta, se sugiere una correción")
 			log.debug "ERROR EN FECHA DE NACIMIENTO SEGUN BANDERA"
 			render(view: "create", model: [pacienteInstance: pacienteInstance,eventInstance:eventInstance,localidades:listlocalidades])
 			return
@@ -216,19 +216,23 @@ class PacienteController {
 					params.fechaNacimiento_month=params.fechaNacimiento.substring(3,5)
 					params.fechaNacimiento_day=params.fechaNacimiento.substring(0,2)
 					try{
-						if(params.fechaNacimiento_month.toInteger()>12)
+						if(params.fechaNacimiento_month.toInteger()>12){
+                                                        log.debug "el mes de fecha nacimiento mayor a 12"
 							fechaNacimientoError=true
+                                                }
 						if(params.fechaNacimiento_day.toInteger()>31){
+                                                        log.debug "el dia de fecha nacimiento mayor a 31"
 							fechaNacimientoError=true
 						}
 					}catch(NumberFormatException e){
+                                                log.debug "NumberFormatException"
 						fechaNacimientoError=true
 					}
 				}
 			}
 			
-            pacienteInstance.properties = params
-			pacienteInstance.obraSocial = ObraSocial.load(params.obraSocialId)
+                        pacienteInstance.properties = params
+			pacienteInstance.obraSocial = ObraSocial.get(params.obraSocialId)
 			if(fechaNacimientoError){
 				pacienteInstance.validate()
 				pacienteInstance.errors.rejectValue("fechaNacimiento","com.medfire.Profesional.fechaNacimiento.date.error","Ingrese una fecha correcta, se sugiere una correción")

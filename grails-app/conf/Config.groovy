@@ -36,6 +36,10 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 // Path de los reportes 
 jasper.dir.reports = 'reports'
 
+grails.databinding.dateFormats = [
+    'yyyy-MM-dd','dd/MM/yyyy'
+]
+
 
 
 // The default codec used to encode data with ${}
