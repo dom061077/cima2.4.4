@@ -46,6 +46,8 @@ class HistoriaClinicaController {
 		log.info "PARAMETROS $params"
 		def userInstance = Person.load(springSecurityService.getCurrentUser().id)
 		def antecedenteInstance  
+       		def eventInstance
+
 
 		if(!userInstance.profesionalAsignado){
 			flash.message = "No tiene un profesional asignado"
@@ -75,7 +77,6 @@ class HistoriaClinicaController {
 			redirect(action: "list")
 			return
 		}
-		def eventInstance
 		if(params.eventId){
 			eventInstance = Event.get(params.eventId)
 			if(!eventInstance){
@@ -94,6 +95,7 @@ class HistoriaClinicaController {
 	def save = {
 		log.info "INGRESANDO AL CLOSURE save DEL CONTROLLER HistoriaClinicaController"
 		log.info "PARAMETROS $params"
+		def eventInstance
 		
 
 		
@@ -122,7 +124,9 @@ class HistoriaClinicaController {
 					fechaConsultaError=true
 				}
 			}
-		}
+		}else{
+                    fechaConsultaError = true
+                }
 
 		
 		if(fechaConsultaError){
@@ -142,7 +146,6 @@ class HistoriaClinicaController {
                 consultaInstance.properties = params.consulta
                 log.debug "Fecha en consultaInstance: "+consultaInstance.fechaConsulta
 		def pacienteInstance = Paciente.get(params.pacienteId.toLong())
-		def eventInstance
 		def userInstance = Person.load(springSecurityService.getCurrentUser().id)
 		def profesionalInstance = Profesional.load(userInstance.profesionalAsignado.id)
 		consultaInstance.profesional=profesionalInstance
@@ -321,22 +324,37 @@ class HistoriaClinicaController {
 		log.info "INGRESANDO AL CLOSURE update"
 		log.info "PARAMS: $params"
 		log.debug "ID: ${params.id}"
-		
+		def fechaConsultaError = false		
 		if (params.consulta.fechaConsultaAux){
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy")
 			def fecha
-			try{
-				fecha = df.parse(params.consulta.fechaConsultaAux)
-				log.debug "LA FECHA SE PARSEO BIEN"
-			}catch(ParseException e){
-				log.debug "LA FECHA NO SE PARSEO BIEN"
-			}
-			def gc = Calendar.getInstance()
-			gc.setTime(fecha)
-			log.debug "ANIO: "+gc.get(Calendar.YEAR).toString()+", MES "+gc.get(Calendar.MONTH+1).toString()+" DIA "+gc.get(Calendar.DATE).toString()
-			params.consulta.fechaConsulta_year=gc.get(Calendar.YEAR).toString()
-			params.consulta.fechaConsulta_month=(gc.get(Calendar.MONTH)+1).toString()
-			params.consulta.fechaConsulta_day=gc.get(Calendar.DATE).toString()
+			if(params.consulta.fechaConsultaAux.length()<10)
+				fechaConsultaError = true
+                        else{            
+                                try{
+                                        fecha = df.parse(params.consulta.fechaConsultaAux)
+                                        log.debug "LA FECHA SE PARSEO BIEN"
+                                }catch(ParseException e){
+                                        log.debug "LA FECHA NO SE PARSEO BIEN"
+                                        fechaConsultaError = true
+                                }
+                                def gc = Calendar.getInstance()
+                                gc.setTime(fecha)
+                                log.debug "ANIO: "+gc.get(Calendar.YEAR).toString()+", MES "+gc.get(Calendar.MONTH+1).toString()+" DIA "+gc.get(Calendar.DATE).toString()
+                                params.consulta.fechaConsulta_year=gc.get(Calendar.YEAR).toString()
+                                params.consulta.fechaConsulta_month=(gc.get(Calendar.MONTH)+1).toString()
+                                params.consulta.fechaConsulta_day=gc.get(Calendar.DATE).toString()
+                        }
+		}else
+                    fechaConsultaError = true
+		if(fechaConsultaError){
+			log.debug "ERROR EN LA FECHA DE CONSULTA SEGUN BANDERA"
+			if(params.eventId){
+				eventInstance = Event.get(params.eventId)
+			}	
+			//consultaInstance.errors.rejectValue("fechaConsulta","com.medfire.Consulta.fechaConsulta.date.error")
+			render " <div class='ui-state-error ui-corner-all' style='padding: 0pt 0.7em;'>	<ul><li>${g.message(code:'com.medfire.Consulta.fechaConsulta.date.error')}</li></ul></div>	"
+			return 
 		}
 
 		

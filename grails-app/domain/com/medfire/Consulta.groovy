@@ -41,6 +41,7 @@ class Consulta {
 	static hasMany = [prescripciones:Prescripcion,estudios:EstudioComplementario]
 	
     static constraints = {
+                fechaConsulta(nullable:false,blank:false)
 		cie10(nullable:true,blank:true)
 		contenido(blank:false)
 		estudios validator: {
