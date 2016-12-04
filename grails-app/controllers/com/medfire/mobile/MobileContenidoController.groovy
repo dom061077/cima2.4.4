@@ -3,6 +3,8 @@ package com.medfire.mobile
 import grails.converters.JSON
 import com.medfire.MobileContenido
 import com.medfire.MobileProcedimiento
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 class MobileContenidoController {
 
@@ -20,9 +22,19 @@ class MobileContenidoController {
         def procedimientos=[]
         //procedimientos.add(url:)
         def list = MobileProcedimiento.list()
+        
+
+        String pattern = "(?<=watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";
+
+        Pattern compiledPattern = Pattern.compile(pattern);
         list.each{
-            procedimientos.add(id:it.id,descripcion:it.descripcion
-                ,titulo:it.titulo,urlVideo:it.urlVideo)
+             Matcher matcher = compiledPattern.matcher(it.urlVideo);
+             String vId = null;
+             if(matcher.find()){
+                vId= matcher.group();
+             }        
+             procedimientos.add(id:it.id,descripcion:it.descripcion
+                ,titulo:it.titulo,urlVideo:'http://www.youtube.com/embed/'+vId+'?rel=0')
         }
         render procedimientos as JSON
     }

@@ -30,6 +30,8 @@ class MobileProcedimientoController {
             return
         }
 
+        
+        
         if (mobileProcedimientoInstance.hasErrors()) {
             respond mobileProcedimientoInstance.errors, view:'create'
             return

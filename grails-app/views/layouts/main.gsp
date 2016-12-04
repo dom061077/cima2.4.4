@@ -287,6 +287,9 @@
 								<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
 									<li><a href="${createLink(controller:'mobileContenido',action:'edit')}">Contenido Móvil</a> </li>
 								</sec:ifAnyGranted>                                                                
+								<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PROFESIONAL">
+									<li><a href="${createLink(controller:'mobileProcedimiento',action:'create')}">Procedimientos Móvil</a> </li>
+								</sec:ifAnyGranted>                                                                 
 							</ul>
 						</li>
 						<li><a href="#" class="dir">Informes</a>
