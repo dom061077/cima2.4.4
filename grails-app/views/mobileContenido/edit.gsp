@@ -33,8 +33,12 @@
                 	<script>
                                 CKEDITOR.replace( 'quienesSomosId', {
                                         //width: '70%',
-                                        height: 500
+                                        height: 250
                                 } );
+                                CKEDITOR.replace( 'soyCandidatoId', {
+                                        //width: '70%',
+                                        height: 250
+                                } );                                
                 	</script>
                 
 	</body>

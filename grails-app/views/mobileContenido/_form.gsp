@@ -11,7 +11,13 @@
         <textArea style="min-height: 500px" name="quienesSomos" class="ckeditor"  id="quienesSomosId">
                 ${mobileContenidoInstance?.quienesSomos}
         </textArea>
-        
+	<label for="soyCandidato">
+		<g:message code="mobileContenido.soyCandidato.label" default="¿Soy candidato?" />
+		<span class="required-indicator">*</span>
+	</label>        
+        <textArea style="min-height: 500px" name="soyCandidato" class="ckeditor"  id="soyCandidatoId">
+                ${mobileContenidoInstance?.soyCandidato}
+        </textArea>        
 
 </div>
 

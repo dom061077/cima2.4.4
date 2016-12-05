@@ -14,6 +14,7 @@ class MobileContenidoController {
         def list = MobileContenido.list()
         list.each{
             contenido.quienessomos = it.quienesSomos
+            contenido.soyCandidato = it.soyCandidato
         }
         render contenido as JSON
     }
@@ -34,7 +35,8 @@ class MobileContenidoController {
                 vId= matcher.group();
              }        
              procedimientos.add(id:it.id,descripcion:it.descripcion
-                ,titulo:it.titulo,urlVideo:'http://www.youtube.com/embed/'+vId+'?rel=0')
+                ,titulo:it.titulo,urlVideo:'http://www.youtube.com/embed/'+vId+'?rel=0'
+                ,urlVideoImg:'http://img.youtube.com/vi/'+vId+'/default.jpg');
         }
         render procedimientos as JSON
     }

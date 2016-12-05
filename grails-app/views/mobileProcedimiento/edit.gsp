@@ -97,7 +97,7 @@ $("#urlVideoId").live('input urlVideoId',function(e){
 		
                                         
                                         <a id="urlVideoAId" class="youtube" href="">
-                                              <img id="urlVideoImgId" class="youtube" src="" title="..." />                                                                        
+                                              <img id="urlVideoImgId" class="youtube" src=""  />                                                                        
                                         </a>
 	                                        
                                     </div>
