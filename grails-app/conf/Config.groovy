@@ -212,17 +212,17 @@ grails.plugin.springsecurity.requestMap.className = 'com.medfire.security.Reques
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 grails.plugin.springsecurity.password.algorithm = 'SHA1'
 grails.plugin.springsecurity.password.hash.iterations = 1
-
-//cors.enabled=true
-//cors.url.pattern = '/api/*'
-//cors.headers=[
-//    'Access-Control-Allow-Origin': '*',
-//    'Access-Control-Allow-Credentials': true,
-//    'Access-Control-Allow-Headers': 'origin, authorization, accept, content-type, x-requested-with',
-//    'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS',
-//    'Access-Control-Max-Age': 3600
-//    ]
-
+/*
+cors.enabled=true
+cors.url.pattern = '/api/*'
+cors.headers=[
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'origin, authorization, accept, content-type, x-requested-with',
+    'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS',
+    'Access-Control-Max-Age': 3600
+    ]
+*/
 /*
 * grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.rural.ganaderia.seguridad.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.rural.ganaderia.seguridad.UserRole'
